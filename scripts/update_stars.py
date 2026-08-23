@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Fetch latest star counts for all GitHub repos in README.md and update it in place.
+"""Fetch latest star counts for all GitHub repos listed in README.md / README.en.md
+and update both files in place.
 
-- Reads every `https://github.com/owner/repo` link in README.md
-- Queries the GitHub API for each repo's stargazers_count
+- Reads every `https://github.com/owner/repo` link in each README
+- Queries the GitHub API once per unique repo for its stargazers_count
 - Rewrites the "⭐ x.xk" cells in every row that links to that repo
-- Updates the "数据抓取时间" line and the "books-NN" badge count
-- Only writes the file when something actually changed (no-op commits are avoided)
+- Updates the "books-NN" badge count and the crawl timestamp in each file
+- Only writes a file when something actually changed (no-op commits are avoided)
 
-Intended to run inside GitHub Actions; also works locally (anonymous API limit
-is 60 req/h, which is plenty for a list of this size).
+Intended to run inside GitHub Actions (GITHUB_TOKEN gives 5000 req/h); also works
+locally with the anonymous limit of 60 req/h, which is plenty for a list this size.
 """
 
 import json
@@ -18,10 +19,17 @@ import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-README = "README.md"
+# path -> (regex for its crawl-timestamp line, replacement prefix)
+FILES = {
+    "README.md": (r"数据抓取时间：\d{4}-\d{2}-\d{2}", "数据抓取时间："),
+    "README.en.md": (r"Data fetched: \d{4}-\d{2}-\d{2}", "Data fetched: "),
+}
+SELF = "gotonote/ai-agent-books"  # badge links reference this repo itself; exclude it
 API = "https://api.github.com/repos/"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 USER_AGENT = "gotonote/ai-agent-books star-updater"
+
+REPO_RE = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)")
 
 
 def fetch_stars(repo: str) -> int:
@@ -40,52 +48,49 @@ def fmt_stars(n: int) -> str:
     return f"{n / 1000:.1f}k" if n >= 1000 else str(n)
 
 
+def load_repos(content: str) -> set:
+    return {r for r in REPO_RE.findall(content) if r != SELF}
+
+
 def main() -> int:
-    with open(README, encoding="utf-8") as f:
-        content = f.read()
+    contents = {}
+    all_repos: set = set()
+    for path in FILES:
+        with open(path, encoding="utf-8") as f:
+            contents[path] = f.read()
+        all_repos |= load_repos(contents[path])
+    print(f"Found {len(all_repos)} unique repos across {len(FILES)} files")
 
-    SELF = "gotonote/ai-agent-books"
-    repos = sorted(
-        {
-            r
-            for r in re.findall(
-                r"https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)", content
-            )
-            if r != SELF  # badge links reference the repo itself; exclude it
-        }
-    )
-    print(f"Found {len(repos)} unique repos")
-
-    new_content = content
-    for repo in repos:
+    # Fetch each repo's star count exactly once, then apply to every file
+    stars = {}
+    for repo in sorted(all_repos):
         try:
-            stars = fetch_stars(repo)
+            stars[repo] = fetch_stars(repo)
+            print(f"  {repo}: {stars[repo]}")
         except Exception as exc:
             print(f"  !! {repo}: {exc}", file=sys.stderr)
-            continue
-        # Rewrite "⭐ <old>" in every row (category tables + Top 10) linking to this repo
-        pattern = re.compile(
-            r"(\[" + re.escape(repo) + r"\]\([^)]*\)\s*\|\s*⭐\s*)[\d.]+k?"
-        )
-        new_content, n = pattern.subn(
-            lambda m: m.group(1) + fmt_stars(stars), new_content
-        )
-        print(f"  {repo}: {stars} (rows updated: {n})")
 
-    # Keep the repo-count badge and the crawl timestamp in sync
-    new_content = re.sub(r"books-\d+", f"books-{len(repos)}", new_content)
     now = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d")
-    new_content = re.sub(
-        r"数据抓取时间：\d{4}-\d{2}-\d{2}", f"数据抓取时间：{now}", new_content
-    )
-
-    if new_content != content:
-        with open(README, "w", encoding="utf-8") as f:
-            f.write(new_content)
-        print("README.md updated.")
-    else:
-        print("No changes.")
-    return 0
+    changed = False
+    for path, (ts_re, ts_prefix) in FILES.items():
+        content = contents[path]
+        new = content
+        for repo, count in stars.items():
+            # Rewrite "⭐ <old>" in every row (category tables + Top 10) linking to this repo
+            pattern = re.compile(
+                r"(\[" + re.escape(repo) + r"\]\([^)]*\)\s*\|\s*⭐\s*)[\d.]+k?"
+            )
+            new = pattern.subn(lambda m: m.group(1) + fmt_stars(count), new)[0]
+        new = re.sub(r"books-\d+", f"books-{len(all_repos)}", new)
+        new = re.sub(ts_re, ts_prefix + now, new)
+        if new != content:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(new)
+            print(f"{path}: updated.")
+            changed = True
+        else:
+            print(f"{path}: no changes.")
+    return 0 if changed else 0
 
 
 if __name__ == "__main__":
