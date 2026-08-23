@@ -26,12 +26,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_stars.py
 
+      - name: Regenerate static site
+        run: python scripts/generate_site.py
+
       - name: Commit changes if any
         run: |
           if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md README.en.md
+            git add README.md README.en.md docs/index.html
             git commit -m "docs: 自动更新 Star 数（$(TZ=Asia/Shanghai date +%Y-%m-%d)）"
             git push
           else
