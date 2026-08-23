@@ -3,7 +3,7 @@
 > [🇨🇳 中文版](README.md)
 >
 > A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
-> Data fetched: 2026-08-23 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
+> Data fetched: 2026-08-24 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
@@ -55,7 +55,7 @@
 | [jayminwest/agentic-engineering-book](https://github.com/jayminwest/agentic-engineering-book) | ⭐ 197 | 🟢 Beginner · **Agentic Engineering** — a comprehensive, progressive guide to building agentic systems. |
 | [Siddhant-K-code/agentic-engineering-guide](https://github.com/Siddhant-K-code/agentic-engineering-guide) | ⭐ 157 | 🟢 Beginner · **Agentic Engineering Guide** (MDX format, interactive reading). |
 | [Drobiazkin/ai-agent-architecture](https://github.com/Drobiazkin/ai-agent-architecture) | ⭐ 46 | 🟡 Intermediate · **Build LLM systems you actually control** — a free open-source engineering book + course, from tokenization upward. |
-| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 39 | 🟡 Intermediate · **The First Principles of AI Programming** — starts from the underlying physical constraints. |
+| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 40 | 🟡 Intermediate · **The First Principles of AI Programming** — starts from the underlying physical constraints. |
 | [awsm-research/agentic-swe-book](https://github.com/awsm-research/agentic-swe-book) | ⭐ 10 | 🟡 Intermediate · **Agentic Software Engineering: A Practical Guide for the AI-Native Engineer**. |
 
 ## <a id="commercial-code"></a>3. Code Repos for Commercial Books

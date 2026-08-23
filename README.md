@@ -3,7 +3,7 @@
 > [🇬🇧 English Version](README.en.md)
 >
 > 整理自 GitHub 上与 **AI Agent / LLM Agent / Agentic Engineering** 相关的热门开源书籍、教程与配套代码仓库。
-> 数据抓取时间：2026-08-23 · Star 数由 GitHub Actions 每日自动更新，按热门度排序。
+> 数据抓取时间：2026-08-24 · Star 数由 GitHub Actions 每日自动更新，按热门度排序。
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
 [![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
@@ -53,7 +53,7 @@
 | [jayminwest/agentic-engineering-book](https://github.com/jayminwest/agentic-engineering-book) | ⭐ 197 | 🟢 入门 · **Agentic Engineering**：构建 Agentic 系统的综合渐进式指南 |
 | [Siddhant-K-code/agentic-engineering-guide](https://github.com/Siddhant-K-code/agentic-engineering-guide) | ⭐ 157 | 🟢 入门 · **Agentic Engineering Guide**（MDX 格式，交互式阅读） |
 | [Drobiazkin/ai-agent-architecture](https://github.com/Drobiazkin/ai-agent-architecture) | ⭐ 46 | 🟡 进阶 · **Build LLM systems you actually control**：免费开源工程书 + 课程，从 tokenization 讲起 |
-| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 39 | 🟡 进阶 · **The First Principles of AI Programming**：从底层物理约束出发讲 AI 编程 |
+| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 40 | 🟡 进阶 · **The First Principles of AI Programming**：从底层物理约束出发讲 AI 编程 |
 | [awsm-research/agentic-swe-book](https://github.com/awsm-research/agentic-swe-book) | ⭐ 10 | 🟡 进阶 · **Agentic Software Engineering: A Practical Guide for the AI-Native Engineer** |
 
 ## <a id="commercial-code"></a>📦 三、商业图书配套代码仓库
