@@ -14,6 +14,12 @@
 
 > Level legend: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced
 
+## ✨ Why star this list
+
+- **Always fresh**: Star counts are refreshed daily by GitHub Actions — no stale data
+- **Curated, not dumped**: 26 repos across 6 categories, each tagged with a difficulty level
+- **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/ai-agent-books/) with search & filtering
+
 ---
 
 ## Table of Contents
@@ -110,3 +116,10 @@
 - **Intermediate (Harness engineering)**: *Decoding the Agent Harness* → harness-books → Harness Engineering Orange Book
 - **Interview / job hunting**: AIGC-Interview-Book + Awesome-Agent-Papers
 - **Hands-on practice**: Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
+
+---
+
+## 📅 Changelog
+
+- **2026-08-23**: Launched GitHub Pages site (search + difficulty filter); added English README & difficulty levels; daily auto-update via GitHub Actions
+- **2026-08-22**: Initial release (26 repos)

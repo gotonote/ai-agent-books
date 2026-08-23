@@ -2,10 +2,12 @@
 """Generate docs/index.html (GitHub Pages site) from README.md.
 
 Parses the category tables and Top 10 leaderboard in README.md and renders a
-responsive static page. Intended to run right after update_stars.py in CI so
-the site always reflects the latest star counts. Pure stdlib, no deps.
+responsive static page with client-side search & difficulty filtering.
+Intended to run right after update_stars.py in CI so the site always reflects
+the latest star counts. Pure stdlib, no deps.
 """
 
+import html as html_mod
 import re
 from pathlib import Path
 
@@ -43,11 +45,19 @@ header p { color:var(--muted); margin-top:8px; font-size:.95rem; }
 .btn { display:inline-block; padding:9px 18px; border-radius:10px; text-decoration:none; font-size:.92rem; border:1px solid var(--line); color:var(--text); background:var(--card); transition:.15s; }
 .btn:hover { border-color:var(--accent); transform:translateY(-1px); }
 .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+.controls { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; margin:26px 0 6px; }
+.search { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:10px; padding:9px 14px; font-size:.9rem; width:280px; max-width:100%; outline:none; }
+.search:focus { border-color:var(--accent); }
+.filter-btn { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:20px; padding:6px 15px; font-size:.83rem; cursor:pointer; transition:.15s; }
+.filter-btn:hover { border-color:var(--accent); }
+.filter-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+.count { color:var(--muted); font-size:.82rem; text-align:center; margin:6px 0 0; }
 section { margin-top:44px; }
 section h2 { font-size:1.3rem; margin-bottom:16px; padding-left:12px; border-left:4px solid var(--accent); }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; }
 .card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-decoration:none; color:var(--text); transition:.15s; }
 .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.card.hidden { display:none; }
 .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
 .repo { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; color:var(--accent); }
 .stars { font-size:.85rem; white-space:nowrap; }
@@ -69,7 +79,41 @@ td.stars { white-space:nowrap; text-align:right; }
 .roadmap b { color:var(--accent); }
 footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:56px; }
 footer a { color:var(--accent); text-decoration:none; }
-@media (max-width:640px) { .grid { grid-template-columns:1fr; } header h1 { font-size:1.5rem; } }
+@media (max-width:640px) { .grid { grid-template-columns:1fr; } header h1 { font-size:1.5rem; } .search { width:100%; } }
+"""
+
+JS = """
+<script>
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var search = document.getElementById('search');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+  var count = document.getElementById('count');
+  var diff = 'all';
+  function apply() {
+    var q = (search.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var okDiff = diff === 'all' || c.getAttribute('data-diff') === diff;
+      var okQ = !q || (c.getAttribute('data-search') || '').indexOf(q) !== -1;
+      var show = okDiff && okQ;
+      c.classList.toggle('hidden', !show);
+      if (show) shown++;
+    });
+    count.textContent = '显示 ' + shown + ' / ' + cards.length + ' 个仓库';
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      diff = b.getAttribute('data-diff');
+      apply();
+    });
+  });
+  search.addEventListener('input', apply);
+  apply();
+})();
+</script>
 """
 
 
@@ -100,6 +144,7 @@ def parse_rows(lines, start, end):
         if bm:
             title = bm.group(1)
             desc = desc.replace(f"**{title}**", "", 1).strip()
+        search = f"{repo} {title} {desc}".lower()
         rows.append(
             {
                 "name": md(title),
@@ -108,6 +153,7 @@ def parse_rows(lines, start, end):
                 "desc": md(desc),
                 "diff_cls": diff_cls,
                 "diff_label": diff_label,
+                "search": html_mod.escape(search, quote=True),
             }
         )
     return rows
@@ -126,7 +172,8 @@ def card(row):
     )
     return (
         f'      <a class="card" href="https://github.com/{row["repo"]}" '
-        f'target="_blank" rel="noopener">\n'
+        f'target="_blank" rel="noopener" data-diff="{row["diff_cls"] or "none"}" '
+        f'data-search="{row["search"]}">\n'
         f'        <div class="card-top">\n'
         f'          <span class="repo">{row["repo"]}</span>\n'
         f'          <span class="stars">⭐ {row["stars"]}</span>\n'
@@ -181,13 +228,25 @@ def main():
         f'<div class="stat">🔄 数据 <b>{fetched}</b> 自动更新</div>'
     )
 
+    controls = (
+        '<div class="controls">\n'
+        '  <input class="search" id="search" type="search" '
+        'placeholder="🔍 搜索书名 / 仓库 / 关键词…" autocomplete="off">\n'
+        '  <button class="filter-btn active" data-diff="all">全部</button>\n'
+        '  <button class="filter-btn" data-diff="beginner">🟢 入门</button>\n'
+        '  <button class="filter-btn" data-diff="intermediate">🟡 进阶</button>\n'
+        '  <button class="filter-btn" data-diff="advanced">🔴 深度</button>\n'
+        "</div>\n"
+        '<p class="count" id="count"></p>'
+    )
+
     page = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Agent 热门书单 | Open-source AI Agent Books</title>
-<meta name="description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单，Star 数每日自动更新。">
+<meta name="description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单，支持难度筛选与搜索，Star 数每日自动更新。">
 <style>{CSS}</style>
 </head>
 <body>
@@ -203,6 +262,7 @@ def main():
       <a class="btn" href="https://github.com/gotonote/ai-agent-books/blob/main/README.md" target="_blank" rel="noopener">🇨🇳 中文版</a>
       <a class="btn" href="https://github.com/gotonote/ai-agent-books/blob/main/README.en.md" target="_blank" rel="noopener">🇬🇧 English</a>
     </div>
+    {controls}
   </header>
 
 {chr(10).join(sections_html)}
@@ -233,6 +293,7 @@ def main():
     数据来自 <a href="https://github.com/gotonote/ai-agent-books" target="_blank" rel="noopener">gotonote/ai-agent-books</a> · 由 GitHub Actions 每日自动更新 · 欢迎 PR 推荐新书
   </footer>
 </div>
+{JS}
 </body>
 </html>
 """

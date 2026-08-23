@@ -12,6 +12,12 @@
 [![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/ai-agent-books/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
+## ✨ 为什么收藏这份书单
+
+- **数据是活的**：Star 数由 GitHub Actions 每日自动抓取更新，榜单永不落伍
+- **精选不注水**：26 个仓库按六大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
+- **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/ai-agent-books/)网页版
+
 ---
 
 ## 📑 目录
@@ -108,3 +114,10 @@
 - **进阶（Harness 工程）**：《御舆：解码 Agent Harness》→ harness-books → Harness Engineering 橙皮书
 - **面试 / 求职**：AIGC-Interview-Book + Awesome-Agent-Papers
 - **动手实践**：Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
+
+---
+
+## 📅 更新记录
+
+- **2026-08-23**：上线 GitHub Pages 在线书单（搜索 + 难度筛选）；新增英文版 README、难度分级；接入 GitHub Actions 每日自动更新 Star 数
+- **2026-08-22**：整理发布初版（26 个仓库）
