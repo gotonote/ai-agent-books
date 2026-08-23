@@ -6,6 +6,7 @@
 > 数据抓取时间：2026-08-23 · Star 数由 GitHub Actions 每日自动更新，按热门度排序。
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
+[![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
 [![收录仓库](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/ai-agent-books?style=flat-square)]()
 [![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/ai-agent-books/update-stars.yml?style=flat-square&label=stars%20update)]()

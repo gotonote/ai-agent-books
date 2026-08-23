@@ -6,6 +6,7 @@
 > Data fetched: 2026-08-23 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
+[![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
 [![Books](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/ai-agent-books?style=flat-square)]()
 [![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/ai-agent-books/update-stars.yml?style=flat-square&label=stars%20update)]()
