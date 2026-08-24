@@ -3,7 +3,7 @@
 > [🇨🇳 中文版](README.md)
 >
 > A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
-> Data fetched: 2026-08-24 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
+> Data fetched: 2026-08-25 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
@@ -39,7 +39,7 @@
 
 | Repo | Stars | Description |
 | --- | --- | --- |
-| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.1k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
+| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.7k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | 🟢 Beginner · **Hermes Agent from Zero to Pro · Orange Book series** — hands-on guide to Nous Research's open-source AI agent framework. |
 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.1k | 🟡 Intermediate · **"Yu Yu: Decoding the Agent Harness"** — 420k words dissecting the harness skeleton of AI agents; 15 chapters from the conversation loop to building your own agent harness. |
 | [yeasy/harness_engineering_guide](https://github.com/yeasy/harness_engineering_guide) | ⭐ 117 | 🟡 Intermediate · **Harness Engineering Guide** — agent = LLM + harness; deep dive into harness engineering principles, design, implementation & practice. |
@@ -97,7 +97,7 @@
 
 | # | Repo | Stars | One-liner |
 | --- | --- | --- | --- |
-| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.1k | Understanding AI Agents (Bojie Li) |
+| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.7k | Understanding AI Agents (Bojie Li) |
 | 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.3k | Hugging Face Agents Course |
 | 3 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | LLM resource hub |
 | 4 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | LLM agent paper list |
