@@ -3,7 +3,7 @@
 > [🇨🇳 中文版](README.md)
 >
 > A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
-> Data fetched: 2026-08-25 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
+> Data fetched: 2026-08-26 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
@@ -39,11 +39,11 @@
 
 | Repo | Stars | Description |
 | --- | --- | --- |
-| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.7k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
+| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 42.2k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | 🟢 Beginner · **Hermes Agent from Zero to Pro · Orange Book series** — hands-on guide to Nous Research's open-source AI agent framework. |
 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.1k | 🟡 Intermediate · **"Yu Yu: Decoding the Agent Harness"** — 420k words dissecting the harness skeleton of AI agents; 15 chapters from the conversation loop to building your own agent harness. |
-| [yeasy/harness_engineering_guide](https://github.com/yeasy/harness_engineering_guide) | ⭐ 117 | 🟡 Intermediate · **Harness Engineering Guide** — agent = LLM + harness; deep dive into harness engineering principles, design, implementation & practice. |
-| [alchaincyf/harness-engineering-orange-book](https://github.com/alchaincyf/harness-engineering-orange-book) | ⭐ 91 | 🟡 Intermediate · **Harness Engineering · Orange Book series** — a practical guide to "reining in" AI agents. |
+| [yeasy/harness_engineering_guide](https://github.com/yeasy/harness_engineering_guide) | ⭐ 118 | 🟡 Intermediate · **Harness Engineering Guide** — agent = LLM + harness; deep dive into harness engineering principles, design, implementation & practice. |
+| [alchaincyf/harness-engineering-orange-book](https://github.com/alchaincyf/harness-engineering-orange-book) | ⭐ 93 | 🟡 Intermediate · **Harness Engineering · Orange Book series** — a practical guide to "reining in" AI agents. |
 | [dawei008/openbook](https://github.com/dawei008/openbook) | ⭐ 34 | 🟡 Intermediate · **OpenBook: AI Agent Harness Engineering** — an open-source book on building production-grade agent harnesses (26 chapters). |
 
 ## <a id="english-books"></a>2. Open-source Books / Courses (English)
@@ -55,7 +55,7 @@
 | [jayminwest/agentic-engineering-book](https://github.com/jayminwest/agentic-engineering-book) | ⭐ 197 | 🟢 Beginner · **Agentic Engineering** — a comprehensive, progressive guide to building agentic systems. |
 | [Siddhant-K-code/agentic-engineering-guide](https://github.com/Siddhant-K-code/agentic-engineering-guide) | ⭐ 157 | 🟢 Beginner · **Agentic Engineering Guide** (MDX format, interactive reading). |
 | [Drobiazkin/ai-agent-architecture](https://github.com/Drobiazkin/ai-agent-architecture) | ⭐ 46 | 🟡 Intermediate · **Build LLM systems you actually control** — a free open-source engineering book + course, from tokenization upward. |
-| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 40 | 🟡 Intermediate · **The First Principles of AI Programming** — starts from the underlying physical constraints. |
+| [caozhiyi/ai-programming-book](https://github.com/caozhiyi/ai-programming-book) | ⭐ 41 | 🟡 Intermediate · **The First Principles of AI Programming** — starts from the underlying physical constraints. |
 | [awsm-research/agentic-swe-book](https://github.com/awsm-research/agentic-swe-book) | ⭐ 10 | 🟡 Intermediate · **Agentic Software Engineering: A Practical Guide for the AI-Native Engineer**. |
 
 ## <a id="commercial-code"></a>3. Code Repos for Commercial Books
@@ -73,9 +73,9 @@
 | --- | --- | --- |
 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | 🔴 Advanced · Companion paper list for the SCIS cover paper *The Rise and Potential of LLM-based Agents*. |
 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | 🟢 Beginner · LLM resource hub: multimodality, agents, MCP, model training/inference, and more. |
-| [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.4k | 🟡 Intermediate · Interview-prep platform for AIGC/LLM/AI-agent algorithm engineers. |
+| [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | 🟡 Intermediate · Interview-prep platform for AIGC/LLM/AI-agent algorithm engineers. |
 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | 🔴 Advanced · LLM agent survey: methodologies, applications & challenges (continuously updated). |
-| [weitianxin/Awesome-Agentic-Reasoning](https://github.com/weitianxin/Awesome-Agentic-Reasoning) | ⭐ 1.3k | 🔴 Advanced · Resource list built on the *Agentic Reasoning for LLMs* survey. |
+| [weitianxin/Awesome-Agentic-Reasoning](https://github.com/weitianxin/Awesome-Agentic-Reasoning) | ⭐ 1.4k | 🔴 Advanced · Resource list built on the *Agentic Reasoning for LLMs* survey. |
 
 ## <a id="agent-rules"></a>5. Agent Rules / Coding-Agent Skill Sets
 
@@ -97,12 +97,12 @@
 
 | # | Repo | Stars | One-liner |
 | --- | --- | --- | --- |
-| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 41.7k | Understanding AI Agents (Bojie Li) |
+| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 42.2k | Understanding AI Agents (Bojie Li) |
 | 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.3k | Hugging Face Agents Course |
 | 3 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | LLM resource hub |
 | 4 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | LLM agent paper list |
 | 5 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | Hermes Agent Orange Book |
-| 6 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.4k | Agent interview questions |
+| 6 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | Agent interview questions |
 | 7 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.1k | Decoding the Agent Harness |
 | 8 | [wquguru/harness-books](https://github.com/wquguru/harness-books) | ⭐ 2.9k | Harness Engineering, 2 vols |
 | 9 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | LLM agent survey list |
