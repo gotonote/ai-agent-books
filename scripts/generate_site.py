@@ -296,12 +296,12 @@ def blackboard_section_html() -> str:
             '    <div class="bb-empty">🎨 黑板报正在筹备中，第一个工作日上午 9 点出刊（北京时间）</div>\n'
             "  </section>"
         )
-    week = [bb_day_html(d, i == 0) for i, d in enumerate(days[:BB_DAYS_ON_HOME])]
+    week = [bb_day_html(d, True) for d in days[:BB_DAYS_ON_HOME]]
     total = len(days)
     return (
         '  <section id="blackboard">\n'
         "    <h2>📰 黑板报 · 最近一周</h2>\n"
-        '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，点击展开阅读；往期全部留存。</p>\n'
+        '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，以下为最近一周全部内容；往期可折叠，全部留存。</p>\n'
         + "\n".join(week)
         + f'\n    <p class="bb-link"><a href="blackboard.html">📚 查看全部 {total} 期 →</a></p>\n'
         "  </section>"
