@@ -24,6 +24,7 @@
 
 ## Table of Contents
 
+- [📰 Daily Tech Bulletin (Blackboard)](#blackboard)
 - [1. Open-source Books (Chinese)](#chinese-books)
 - [2. Open-source Books / Courses (English)](#english-books)
 - [3. Code Repos for Commercial Books](#commercial-code)
@@ -32,6 +33,15 @@
 - [6. AI-Agent Book-Writing Experiments](#ai-writing)
 - [🏆 Top 10 Leaderboard](#top-10)
 - [🔍 Recommended Reading Paths](#roadmap)
+
+---
+
+## <a id="blackboard"></a>📰 Daily Tech Bulletin (Blackboard)
+
+Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curating hot AI / tech news from Hacker News, SSPai, InfoQ China, QbitAI and IT Home: [view the bulletin](docs/blackboard.html).
+
+- 🏠 The homepage shows the **last 7 days**; all past issues are **archived** (one file per day under [docs/blackboard/](docs/blackboard/))
+- ✍️ Each issue includes top headlines, categorized digest and an editor's note
 
 ---
 

@@ -9,10 +9,16 @@ the latest star counts. Pure stdlib, no deps.
 
 import html as html_mod
 import re
+from datetime import datetime
 from pathlib import Path
 
 README = "README.md"
 OUT = "docs/index.html"
+
+# 黑板报：docs/blackboard/*.md 为每日出刊存档，主页展示最近一周，其余进归档页
+BB_DIR = Path("docs/blackboard")
+BB_ARCHIVE = "docs/blackboard.html"
+BB_DAYS_ON_HOME = 7
 
 DIFF = {
     "🟢": ("beginner", "入门"),
@@ -80,6 +86,33 @@ td.stars { white-space:nowrap; text-align:right; }
 footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:56px; }
 footer a { color:var(--accent); text-decoration:none; }
 @media (max-width:640px) { .grid { grid-template-columns:1fr; } header h1 { font-size:1.5rem; } .search { width:100%; } }
+/* ── 黑板报 ── */
+.bb-intro { color:var(--muted); font-size:.9rem; margin-bottom:16px; }
+.bb-intro a { color:var(--accent); text-decoration:none; }
+.bb-intro a:hover { text-decoration:underline; }
+.bb-day { background:var(--card); border:1px solid var(--line); border-radius:14px; margin-bottom:14px; overflow:hidden; }
+.bb-day summary { cursor:pointer; padding:14px 18px; font-weight:600; font-size:1rem; list-style:none; user-select:none; display:flex; justify-content:space-between; align-items:center; }
+.bb-day summary::-webkit-details-marker { display:none; }
+.bb-day summary::after { content:'▸'; color:var(--muted); transition:.15s; }
+.bb-day[open] summary::after { transform:rotate(90deg); }
+.bb-day summary:hover { background:#0f1526; }
+.bb-day[open] summary { border-bottom:1px solid var(--line); background:#0f1526; }
+.bb-day .bb-tag { font-size:.72rem; color:var(--muted); font-weight:400; border:1px solid var(--line); border-radius:20px; padding:1px 10px; }
+.bb-body { padding:6px 22px 18px; font-size:.92rem; }
+.bb-body h3, .bb-body h4 { margin:14px 0 6px; color:var(--accent); font-size:1rem; }
+.bb-body h3 { font-size:1.05rem; }
+.bb-body ol { padding-left:22px; margin:6px 0; }
+.bb-body li { margin:5px 0; }
+.bb-body a { color:var(--accent); text-decoration:none; }
+.bb-body a:hover { text-decoration:underline; }
+.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px; margin:8px 0; font-size:.85rem; }
+.bb-body p { margin:8px 0; }
+.bb-body hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
+.bb-body code { background:#0f1526; padding:1px 6px; border-radius:6px; font-size:.85em; }
+.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:28px; text-align:center; font-size:.9rem; }
+.bb-link { text-align:right; margin:2px 0 18px; }
+.bb-link a { color:var(--accent); text-decoration:none; font-size:.85rem; }
+.bb-link a:hover { text-decoration:underline; }
 """
 
 JS = """
@@ -164,6 +197,154 @@ def stars_num(s: str) -> int:
     return int(float(s.rstrip("k")) * 1000) if s.endswith("k") else int(s)
 
 
+def md_inline(s: str) -> str:
+    """黑板报正文行内 Markdown → HTML（加粗 / 链接 / 自动链接 / 行内代码）。"""
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(
+        r"\[([^\]]+)\]\(([^)]+)\)",
+        r'<a href="\2" target="_blank" rel="noopener">\1</a>',
+        s,
+    )
+    s = re.sub(
+        r"<((?:https?://)[^>]+)>",
+        r'<a href="\1" target="_blank" rel="noopener">\1</a>',
+        s,
+    )
+    s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+    return s
+
+
+def render_md(text: str) -> str:
+    """黑板报每日 Markdown 文件 → HTML（标题 / 列表 / 引用 / 分隔线 / 段落）。"""
+    lines = text.splitlines()
+    # 去掉文件开头的 H1 大标题（日期标题已在 <summary> 中展示）
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if lines and lines[0].startswith("# "):
+        lines = lines[1:]
+    out, list_buf = [], []
+
+    def flush_list():
+        if list_buf:
+            out.append("<ol>" + "".join(list_buf) + "</ol>")
+            list_buf.clear()
+
+    for raw in lines:
+        s = raw.strip()
+        if not s:
+            flush_list()
+            continue
+        if re.match(r"^#{1,6}\s", s):
+            flush_list()
+            level = len(s) - len(s.lstrip("#"))
+            out.append(f"<h{min(level + 1, 6)}>{md_inline(s.lstrip('#').strip())}</h{min(level + 1, 6)}>")
+        elif s == "---":
+            flush_list()
+            out.append("<hr>")
+        elif s.startswith(">"):
+            flush_list()
+            out.append(f"<blockquote>{md_inline(s.lstrip('>').strip())}</blockquote>")
+        elif re.match(r"^\d+\.\s", s):
+            list_buf.append(f"<li>{md_inline(re.sub(r'^\d+\.\s', '', s))}</li>")
+        else:
+            flush_list()
+            out.append(f"<p>{md_inline(s)}</p>")
+    flush_list()
+    return "\n".join(out)
+
+
+def load_blackboard() -> list:
+    """读取 docs/blackboard/ 下所有往期，按日期倒序。"""
+    days = []
+    if BB_DIR.is_dir():
+        for p in sorted(BB_DIR.glob("*.md"), reverse=True):
+            m = re.match(r"(\d{4}-\d{2}-\d{2})\.md$", p.name)
+            if not m:
+                continue
+            d = m.group(1)
+            try:
+                dt = datetime.strptime(d, "%Y-%m-%d")
+            except ValueError:
+                continue
+            days.append(
+                {
+                    "date": d,
+                    "weekday": "周" + "一二三四五六日"[dt.weekday()],
+                    "html": render_md(p.read_text(encoding="utf-8")),
+                }
+            )
+    return days
+
+
+def bb_day_html(day: dict, open_: bool) -> str:
+    return (
+        f'  <details class="bb-day"{" open" if open_ else ""}>\n'
+        f'    <summary>📅 {day["date"]}（{day["weekday"]}）<span class="bb-tag">黑板报</span></summary>\n'
+        f'    <div class="bb-body">\n{day["html"]}\n    </div>\n'
+        "  </details>"
+    )
+
+
+def blackboard_section_html() -> str:
+    """主页「最近一周」板块。"""
+    days = load_blackboard()
+    if not days:
+        return (
+            '  <section id="blackboard">\n'
+            "    <h2>📰 黑板报</h2>\n"
+            '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，自动出刊并长期归档。</p>\n'
+            '    <div class="bb-empty">🎨 黑板报正在筹备中，第一个工作日上午 9 点出刊（北京时间）</div>\n'
+            "  </section>"
+        )
+    week = [bb_day_html(d, i == 0) for i, d in enumerate(days[:BB_DAYS_ON_HOME])]
+    total = len(days)
+    return (
+        '  <section id="blackboard">\n'
+        "    <h2>📰 黑板报 · 最近一周</h2>\n"
+        '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，点击展开阅读；往期全部留存。</p>\n'
+        + "\n".join(week)
+        + f'\n    <p class="bb-link"><a href="blackboard.html">📚 查看全部 {total} 期 →</a></p>\n'
+        "  </section>"
+    )
+
+
+def blackboard_archive_html() -> str:
+    """独立归档页 docs/blackboard.html：展示全部往期。"""
+    days = load_blackboard()
+    if not days:
+        body = '<div class="bb-empty">🎨 黑板报正在筹备中，第一个工作日上午 9 点出刊（北京时间）</div>'
+    else:
+        body = "\n".join(bb_day_html(d, i == 0) for i, d in enumerate(days))
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑板报 · 全部往期 | AI Agent 热门书单</title>
+<meta name="description" content="AI Agent 热门书单 · 黑板报每日 AI 科技新闻精选，全部往期归档。">
+<style>{CSS}</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>📰 黑板报 · 全部往期</h1>
+    <p>工作日每日精选全球 AI / 科技要闻 · 共 {len(days)} 期 · 往期全部留存</p>
+    <div class="actions">
+      <a class="btn primary" href="./">← 返回书单主页</a>
+    </div>
+  </header>
+
+{body}
+
+  <footer>
+    工作日每日出刊 · 往期全部留存 · <a href="https://github.com/gotonote/ai-agent-books" target="_blank" rel="noopener">gotonote/ai-agent-books</a>
+  </footer>
+</div>
+</body>
+</html>
+"""
+
+
 def card(row):
     badge = (
         f'<span class="badge {row["diff_cls"]}">{row["diff_label"]}</span>'
@@ -228,6 +409,8 @@ def main():
         f'<div class="stat">🔄 数据 <b>{fetched}</b> 自动更新</div>'
     )
 
+    bb_section = blackboard_section_html()
+
     controls = (
         '<div class="controls">\n'
         '  <input class="search" id="search" type="search" '
@@ -265,6 +448,8 @@ def main():
     {controls}
   </header>
 
+{bb_section}
+
 {chr(10).join(sections_html)}
 
   <section id="top-10">
@@ -300,6 +485,10 @@ def main():
     Path(OUT).parent.mkdir(parents=True, exist_ok=True)
     Path(OUT).write_text(page, encoding="utf-8")
     print(f"Generated {OUT}: {repo_count} repos, {total_stars:,} total stars")
+
+    Path(BB_ARCHIVE).write_text(blackboard_archive_html(), encoding="utf-8")
+    bb_days = len(load_blackboard())
+    print(f"Generated {BB_ARCHIVE}: {bb_days} blackboard issues archived")
 
 
 if __name__ == "__main__":
