@@ -1,6 +1,6 @@
 # 站外推广文案（可直接复制发布）
 
-> 使用说明：发布时把文末的仓库链接和站点链接换成你的实际链接（站点：https://gotonote.github.io/ai-agent-books/），平台标签按需调整。
+> 使用说明：发布时把文末的仓库链接和站点链接换成你的实际链接（站点：https://gotonote.github.io/awesome-agent-boom/），平台标签按需调整。
 > 建议发布时间：北京时间 20:00-22:00（中文平台）/ UTC 14:00-17:00（英文平台）。
 
 ---
@@ -29,8 +29,8 @@
 
 每本书的 Star 数由 GitHub Actions 每天自动更新，榜单实时刷新。完整书单（含 Top 10 总榜和阅读路线）：
 
-📚 https://github.com/gotonote/ai-agent-books
-🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/ai-agent-books/
+📚 https://github.com/gotonote/awesome-agent-boom
+🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/awesome-agent-boom/
 
 如果你也有私藏的 Agent 好书，欢迎 PR 或 Issue 推荐，一起维护这份书单！
 
@@ -52,8 +52,8 @@ Spent some time digging through GitHub for the best open-source resources on **A
 
 Star counts are refreshed **daily by GitHub Actions**, so the leaderboard is always up to date. Includes a Top 10 leaderboard and recommended reading paths:
 
-📚 https://github.com/gotonote/ai-agent-books
-🌐 Web version (mobile-friendly): https://gotonote.github.io/ai-agent-books/
+📚 https://github.com/gotonote/awesome-agent-boom
+🌐 Web version (mobile-friendly): https://gotonote.github.io/awesome-agent-boom/
 
 Found a great resource I missed? PRs and issues are welcome!
 

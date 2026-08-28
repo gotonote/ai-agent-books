@@ -26,7 +26,7 @@
 - 修正 Star 数 / 失效链接
 - 修正分类归属或描述文案
 - 优化 README 排版、翻译、目录
-- 在 [Issues](https://github.com/gotonote/ai-agent-books/issues) 里推荐新书（贴链接即可，会有人整理进列表）
+- 在 [Issues](https://github.com/gotonote/awesome-agent-boom/issues) 里推荐新书（贴链接即可，会有人整理进列表）
 
 ## 自动化说明
 

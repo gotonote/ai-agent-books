@@ -25,7 +25,7 @@ CN_TZ = timezone(timedelta(hours=8))
 OUT_DIR = "docs/blackboard"
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = "deepseek-chat"
-USER_AGENT = "Mozilla/5.0 (gotonote/ai-agent-books blackboard)"
+USER_AGENT = "Mozilla/5.0 (gotonote/awesome-agent-boom blackboard)"
 
 WEEKDAYS_CN = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
 

@@ -5,18 +5,18 @@
 > 整理自 GitHub 上与 **AI Agent / LLM Agent / Agentic Engineering** 相关的热门开源书籍、教程与配套代码仓库。
 > 数据抓取时间：2026-08-28 · Star 数由 GitHub Actions 每日自动更新，按热门度排序。
 
-[![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
-[![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
+[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
 [![收录仓库](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
-[![Last commit](https://img.shields.io/github/last-commit/gotonote/ai-agent-books?style=flat-square)]()
-[![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/ai-agent-books/update-stars.yml?style=flat-square&label=stars%20update)]()
+[![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
+[![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
 ## ✨ 为什么收藏这份书单
 
 - **数据是活的**：Star 数由 GitHub Actions 每日自动抓取更新，榜单永不落伍
 - **精选不注水**：26 个仓库按六大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
-- **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/ai-agent-books/)网页版
+- **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/awesome-agent-boom/)网页版
 
 ---
 

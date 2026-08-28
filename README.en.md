@@ -5,11 +5,11 @@
 > A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
 > Data fetched: 2026-08-28 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
-[![GitHub stars](https://img.shields.io/github/stars/gotonote/ai-agent-books?style=flat-square)](https://github.com/gotonote/ai-agent-books/stargazers)
-[![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/ai-agent-books/)
+[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
 [![Books](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
-[![Last commit](https://img.shields.io/github/last-commit/gotonote/ai-agent-books?style=flat-square)]()
-[![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/ai-agent-books/update-stars.yml?style=flat-square&label=stars%20update)]()
+[![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
+[![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
 > Level legend: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced
@@ -18,7 +18,7 @@
 
 - **Always fresh**: Star counts are refreshed daily by GitHub Actions — no stale data
 - **Curated, not dumped**: 26 repos across 6 categories, each tagged with a difficulty level
-- **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/ai-agent-books/) with search & filtering
+- **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/awesome-agent-boom/) with search & filtering
 
 ---
 

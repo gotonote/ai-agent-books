@@ -39,8 +39,8 @@
 
 完整书单（26 个仓库、Top 10 总榜、推荐阅读路线）：
 
-📚 https://github.com/gotonote/ai-agent-books
-🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/ai-agent-books/
+📚 https://github.com/gotonote/awesome-agent-boom
+🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/awesome-agent-boom/
 
 书单每周更新，你最近在看哪本？评论区聊聊，有好书也可以推荐给我，一起维护。
 
@@ -58,7 +58,7 @@
 
 我整理了一份 26 个仓库的完整书单，按难度分级、star 数每日自动更新（GitHub 数据是活的，不会过时）：
 
-📚 https://github.com/gotonote/ai-agent-books
+📚 https://github.com/gotonote/awesome-agent-boom
 
 入门路线建议：HF 课程 → 《深入理解 AI Agent》→ Hermes 橙皮书，一个月能上手。
 

@@ -337,7 +337,7 @@ def blackboard_archive_html() -> str:
 {body}
 
   <footer>
-    工作日每日出刊 · 往期全部留存 · <a href="https://github.com/gotonote/ai-agent-books" target="_blank" rel="noopener">gotonote/ai-agent-books</a>
+    工作日每日出刊 · 往期全部留存 · <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a>
   </footer>
 </div>
 </body>
@@ -441,9 +441,9 @@ def main():
 {stats}
     </div>
     <div class="actions">
-      <a class="btn primary" href="https://github.com/gotonote/ai-agent-books" target="_blank" rel="noopener">⭐ Star 仓库</a>
-      <a class="btn" href="https://github.com/gotonote/ai-agent-books/blob/main/README.md" target="_blank" rel="noopener">🇨🇳 中文版</a>
-      <a class="btn" href="https://github.com/gotonote/ai-agent-books/blob/main/README.en.md" target="_blank" rel="noopener">🇬🇧 English</a>
+      <a class="btn primary" href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">⭐ Star 仓库</a>
+      <a class="btn" href="https://github.com/gotonote/awesome-agent-boom/blob/main/README.md" target="_blank" rel="noopener">🇨🇳 中文版</a>
+      <a class="btn" href="https://github.com/gotonote/awesome-agent-boom/blob/main/README.en.md" target="_blank" rel="noopener">🇬🇧 English</a>
     </div>
     {controls}
   </header>
@@ -475,7 +475,7 @@ def main():
   </section>
 
   <footer>
-    数据来自 <a href="https://github.com/gotonote/ai-agent-books" target="_blank" rel="noopener">gotonote/ai-agent-books</a> · 由 GitHub Actions 每日自动更新 · 欢迎 PR 推荐新书
+    数据来自 <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a> · 由 GitHub Actions 每日自动更新 · 欢迎 PR 推荐新书
   </footer>
 </div>
 {JS}

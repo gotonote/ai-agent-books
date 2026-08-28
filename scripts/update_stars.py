@@ -24,10 +24,10 @@ FILES = {
     "README.md": (r"数据抓取时间：\d{4}-\d{2}-\d{2}", "数据抓取时间："),
     "README.en.md": (r"Data fetched: \d{4}-\d{2}-\d{2}", "Data fetched: "),
 }
-SELF = "gotonote/ai-agent-books"  # badge links reference this repo itself; exclude it
+SELF = "gotonote/awesome-agent-boom"  # badge links reference this repo itself; exclude it
 API = "https://api.github.com/repos/"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
-USER_AGENT = "gotonote/ai-agent-books star-updater"
+USER_AGENT = "gotonote/awesome-agent-boom star-updater"
 
 REPO_RE = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)")
 
