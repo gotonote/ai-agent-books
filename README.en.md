@@ -21,7 +21,7 @@
 
 ## 📑 Table of Contents
 
-- 📰 Blackboard: https://gotonote.github.io/awesome-agent-boom/blackboard.html
+- 📰 Blackboard: [![Open bulletin](https://img.shields.io/badge/📰-Open%20bulletin-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 - 📖 [1. Open-source Books (Chinese)](#chinese-books)
 - 🌍 [2. Open-source Books / Courses (English)](#english-books)
 - 📦 [3. Code Repos for Commercial Books](#commercial-code)

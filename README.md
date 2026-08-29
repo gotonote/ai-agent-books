@@ -21,7 +21,7 @@
 
 ## 📑 目录
 
-- 📰 黑板报：https://gotonote.github.io/awesome-agent-boom/blackboard.html
+- 📰 黑板报：[![进入黑板报](https://img.shields.io/badge/📰-进入黑板报-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 - 📖 [一、开源图书（中文）](#chinese-books)
 - 🌍 [二、开源图书 / 课程（英文）](#english-books)
 - 📦 [三、商业图书配套代码仓库](#commercial-code)
