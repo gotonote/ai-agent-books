@@ -19,40 +19,24 @@
 
 ---
 
-## ✨ 为什么收藏这份书单
+## 📑 目录
 
-| | | |
-| --- | --- | --- |
-| 🔄 **数据是活的** | ⭐ **精选不注水** | 🌍 **双端可读** |
-| Star 数每日自动抓取更新，榜单永不落伍 | 47 个仓库按八大主题整理，标注难度 | 中英双语 README + 响应式在线书单 |
-| 📰 **每日黑板报** | 🧭 **难度分级** | 🤝 **开放共建** |
-| 工作日精选全球 AI / 科技要闻 | 🟢 入门 / 🟡 进阶 / 🔴 深度 | 1 分钟即可提交 PR 推荐新书 |
+- 📰 黑板报：https://gotonote.github.io/awesome-agent-boom/blackboard.html
+- 📖 [一、开源图书（中文）](#chinese-books)
+- 🌍 [二、开源图书 / 课程（英文）](#english-books)
+- 📦 [三、商业图书配套代码仓库](#commercial-code)
+- 📑 [四、论文清单 / 资源汇总](#papers-resources)
+- 🛠️ [五、Agent 规则书](#agent-rules)
+- ✍️ [六、AI Agent 写书实验](#ai-writing)
+- 🧩 [七、Agent Harness 生态](#harness-ecosystem)
+- 🤖 [八、Agent 框架 / 工具库](#agent-frameworks)
+- 🔍 [推荐阅读路线](#roadmap)
 
-📈 **Star 增长趋势**（每日自动更新）：
-
-<div align="center">
-
-[![Star 增长趋势](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
-
-</div>
+---
 
 > 💡 想推荐新书 / 发现错误？[提 Issue](https://github.com/gotonote/awesome-agent-boom/issues/new) 或直接 [提交 PR](https://github.com/gotonote/awesome-agent-boom/compare)，1 分钟即可完成，欢迎共建！
 
----
 
-## 📑 目录
-
-| 📰 | [黑板报（每日 AI 要闻）](https://gotonote.github.io/awesome-agent-boom/blackboard.html) | 📖 | [一、开源图书（中文）](#chinese-books) |
-| --- | --- | --- | --- |
-| 🌍 | [二、开源图书 / 课程（英文）](#english-books) | 📦 | [三、商业图书配套代码仓库](#commercial-code) |
-| 📑 | [四、论文清单 / 资源汇总](#papers-resources) | 🛠️ | [五、Agent 规则书](#agent-rules) |
-| ✍️ | [六、AI Agent 写书实验](#ai-writing) | 🧩 | [七、Agent Harness 生态](#harness-ecosystem) |
-| 🤖 | [八、Agent 框架 / 工具库](#agent-frameworks) | 🔍 | [推荐阅读路线](#roadmap) |
-
----
-
-
----
 
 ## <a id="chinese-books"></a>📖 一、开源图书（中文）
 
@@ -153,6 +137,15 @@
 - **动手实践**：Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
 
 ---
+
+📈 **Star 增长趋势**（每日自动更新）：
+
+<div align="center">
+
+[![Star 增长趋势](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+
+</div>
+
 
 <div align="center">
 

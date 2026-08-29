@@ -19,40 +19,24 @@
 
 ---
 
-## ✨ Why star this list
+## 📑 Table of Contents
 
-| | | |
-| --- | --- | --- |
-| 🔄 **Always fresh** | ⭐ **Curated, not dumped** | 🌍 **Read anywhere** |
-| Star counts refreshed daily by GitHub Actions | 47 repos across 8 categories, difficulty-tagged | Bilingual README + responsive web version |
-| 📰 **Daily bulletin** | 🧭 **Difficulty levels** | 🤝 **Open to contributions** |
-| Hand-curated AI / tech news every workday | 🟢 Beginner / 🟡 Intermediate / 🔴 Advanced | Suggest a book via issue or PR in ~1 minute |
+- 📰 Blackboard: https://gotonote.github.io/awesome-agent-boom/blackboard.html
+- 📖 [1. Open-source Books (Chinese)](#chinese-books)
+- 🌍 [2. Open-source Books / Courses (English)](#english-books)
+- 📦 [3. Code Repos for Commercial Books](#commercial-code)
+- 📑 [4. Paper Lists / Resource Hubs](#papers-resources)
+- 🛠️ [5. Agent Rules / Skill Sets](#agent-rules)
+- ✍️ [6. AI-Agent Book-Writing Experiments](#ai-writing)
+- 🧩 [7. Agent Harness Ecosystem](#harness-ecosystem)
+- 🤖 [8. Agent Frameworks / Tools](#agent-frameworks)
+- 🔍 [Recommended Reading Paths](#roadmap)
 
-📈 **Star growth trend** (auto-updated daily):
-
-<div align="center">
-
-[![Star growth trend](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
-
-</div>
+---
 
 > 💡 Want to suggest a book / report an issue? [Open an issue](https://github.com/gotonote/awesome-agent-boom/issues/new) or [submit a PR](https://github.com/gotonote/awesome-agent-boom/compare) — takes about a minute!
 
----
 
-## 📑 Table of Contents
-
-| 📰 | [Daily bulletin](https://gotonote.github.io/awesome-agent-boom/blackboard.html) | 📖 | [1. Open-source Books (Chinese)](#chinese-books) |
-| --- | --- | --- | --- |
-| 🌍 | [2. Open-source Books / Courses (English)](#english-books) | 📦 | [3. Code Repos for Commercial Books](#commercial-code) |
-| 📑 | [4. Paper Lists / Resource Hubs](#papers-resources) | 🛠️ | [5. Agent Rules / Skill Sets](#agent-rules) |
-| ✍️ | [6. AI-Agent Book-Writing Experiments](#ai-writing) | 🧩 | [7. Agent Harness Ecosystem](#harness-ecosystem) |
-| 🤖 | [8. Agent Frameworks / Tools](#agent-frameworks) | 🔍 | [Recommended Reading Paths](#roadmap) |
-
----
-
-
----
 
 ## <a id="chinese-books"></a>1. Open-source Books (Chinese)
 
@@ -153,6 +137,15 @@
 - **Hands-on practice**: Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
 
 ---
+
+📈 **Star growth trend** (auto-updated daily):
+
+<div align="center">
+
+[![Star growth trend](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+
+</div>
+
 
 <div align="center">
 

@@ -148,41 +148,6 @@ footer a:hover { text-decoration:underline; }
   .stat { padding:12px 18px; min-width:104px; }
 }
 
-/* ── 黑板报 ── */
-.bb-intro { color:var(--muted); font-size:.9rem; margin-bottom:16px; }
-.bb-intro a { color:var(--accent); text-decoration:none; }
-.bb-intro a:hover { text-decoration:underline; }
-.bb-day { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-  margin-bottom:14px; overflow:hidden; backdrop-filter:blur(10px); transition:border-color .15s; }
-.bb-day summary { cursor:pointer; padding:15px 20px; font-weight:600; font-size:1rem; list-style:none;
-  user-select:none; display:flex; justify-content:space-between; align-items:center; transition:background .15s; }
-.bb-day summary::-webkit-details-marker { display:none; }
-.bb-day summary::after { content:"\25BE"; color:var(--muted); transition:transform .2s; font-size:.9em; }
-.bb-day[open] summary::after { transform:rotate(180deg); }
-.bb-day summary:hover { background:rgba(255,255,255,.04); }
-.bb-day[open] summary { border-bottom:1px solid var(--line); background:rgba(255,255,255,.03); }
-.bb-day .bb-tag { font-size:.7rem; color:var(--muted); font-weight:400; border:1px solid var(--line);
-  border-radius:999px; padding:2px 11px; }
-.bb-share { font-size:.7rem; color:var(--accent); border:1px solid var(--line); border-radius:999px;
-  padding:2px 11px; margin-left:6px; text-decoration:none; transition:.15s; }
-.bb-share:hover { border-color:var(--accent); color:var(--accent); background:rgba(108,140,255,.08); }
-.bb-body { padding:8px 24px 20px; font-size:.92rem; }
-.bb-body h3, .bb-body h4 { margin:14px 0 6px; color:var(--accent); font-size:1rem; }
-.bb-body h3 { font-size:1.05rem; }
-.bb-body ol { padding-left:22px; margin:6px 0; }
-.bb-body li { margin:5px 0; }
-.bb-body a { color:var(--accent); text-decoration:none; }
-.bb-body a:hover { text-decoration:underline; }
-.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px;
-  margin:8px 0; font-size:.85rem; }
-.bb-body p { margin:8px 0; }
-.bb-body hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
-.bb-body code { background:rgba(255,255,255,.06); padding:1px 7px; border-radius:6px; font-size:.85em; }
-.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line);
-  border-radius:var(--radius); padding:32px; text-align:center; font-size:.9rem; }
-.bb-link { text-align:right; margin:2px 0 18px; }
-.bb-link a { color:var(--accent); text-decoration:none; font-size:.85rem; }
-.bb-link a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>

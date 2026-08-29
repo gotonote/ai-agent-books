@@ -173,7 +173,10 @@ footer a:hover { text-decoration:underline; }
   .stat { padding:12px 18px; min-width:104px; }
 }
 
-/* ── 黑板报 ── */
+"""
+
+BB_CSS = r"""
+/* ── 黑板报（归档页专用） ── */
 .bb-intro { color:var(--muted); font-size:.9rem; margin-bottom:16px; }
 .bb-intro a { color:var(--accent); text-decoration:none; }
 .bb-intro a:hover { text-decoration:underline; }
@@ -209,6 +212,7 @@ footer a:hover { text-decoration:underline; }
 .bb-link a { color:var(--accent); text-decoration:none; font-size:.85rem; }
 .bb-link a:hover { text-decoration:underline; }
 """
+
 
 JS = r"""
 <script>
@@ -414,7 +418,8 @@ def blackboard_archive_html() -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>黑板报 · 全部往期 | AI Agent 热门书单</title>
 <meta name="description" content="AI Agent 热门书单 · 黑板报每日 AI 科技新闻精选，全部往期归档。">
-<style>{CSS}</style>
+<style>{CSS}
+{BB_CSS}</style>
 </head>
 <body>
 <div class="wrap">
