@@ -1,8 +1,8 @@
 <div align="center">
 
-# 📚 AI Agent Books & Courses
+# 🚀 AI Agent Learning Bible
 
-**A curated list of popular open-source books, courses & code repos on AI Agent / LLM Agent / Agentic Engineering — star counts auto-update daily.**
+**The hottest open-source books, courses & code repos on AI Agent / LLM Agent / Agentic Engineering — star counts auto-update daily.**
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=for-the-badge&logo=github)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![Online Site](https://img.shields.io/badge/🖥️-Online%20Site-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)

@@ -416,8 +416,8 @@ def blackboard_archive_html() -> str:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>黑板报 · 全部往期 | AI Agent 热门书单</title>
-<meta name="description" content="AI Agent 热门书单 · 黑板报每日 AI 科技新闻精选，全部往期归档。">
+<title>黑板报 · 全部往期 | AI Agent 学习宝典</title>
+<meta name="description" content="AI Agent 学习宝典 · 黑板报每日 AI 科技新闻精选，全部往期归档。">
 <style>{CSS}
 {BB_CSS}</style>
 </head>
@@ -573,18 +573,18 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Agent 热门书单 | Open-source AI Agent Books</title>
-<meta name="description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单，支持难度筛选与搜索，Star 数每日自动更新。">
+<title>🚀 AI Agent 学习宝典 | Open-source AI Agent Books</title>
+<meta name="description" content="GitHub 上最热门的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选（学习宝典），支持难度筛选与搜索，Star 数每日自动更新。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI Agent 热门书单 | Open-source AI Agent Books">
+<meta property="og:title" content="🚀 AI Agent 学习宝典 | Open-source AI Agent Books">
 <meta property="og:description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单（{repo_count} 个仓库，每日自动更新 Star 数）。">
 <meta property="og:url" content="https://gotonote.github.io/awesome-agent-boom/">
-<meta property="og:site_name" content="AI Agent 热门书单">
+<meta property="og:site_name" content="AI Agent 学习宝典">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Agent 热门书单 | Open-source AI Agent Books">
+<meta name="twitter:title" content="🚀 AI Agent 学习宝典 | Open-source AI Agent Books">
 <meta name="twitter:description" content="GitHub 上最热的 AI Agent 开源书籍、课程与配套代码仓库精选书单（{repo_count} 个仓库）。">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"ItemList","name":"AI Agent 热门书单","description":"GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单","numberOfItems":{repo_count},"itemListElement":[
+{{"@context":"https://schema.org","@type":"ItemList","name":"AI Agent 学习宝典","description":"GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单","numberOfItems":{repo_count},"itemListElement":[
 {','.join('  {{"@type":"ListItem","position":{i},"url":"https://github.com/{r}"}}'.format(i=i, r=r) for i, r in enumerate(listed_repos, 1))}
 ]}}
 </script>
@@ -594,8 +594,8 @@ def main():
 <div class="wrap">
   <header class="hero">
     <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
-    <h1>📚 AI Agent 热门书单</h1>
-    <p>GitHub 上最热的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
+    <h1>🚀 AI Agent 学习宝典</h1>
+    <p>GitHub 上最热门的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
     <div class="stats">
 {stats}
     </div>
