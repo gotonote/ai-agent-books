@@ -1,33 +1,39 @@
-# 📚 AI Agent 热门书单（GitHub 开源仓库整理）
+<div align="center">
 
-> [🇬🇧 English Version](README.en.md)
->
-> 整理自 GitHub 上与 **AI Agent / LLM Agent / Agentic Engineering** 相关的热门开源书籍、教程与配套代码仓库。
+# 📚 AI Agent 热门书单
+
+**整理自 GitHub 上与 AI Agent / LLM Agent / Agentic Engineering 相关的热门开源书籍、课程与配套代码仓库，Star 数每日自动更新。**
+
+[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=for-the-badge&logo=github)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![在线书单](https://img.shields.io/badge/🖥️-在线书单-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)
+[![收录仓库](https://img.shields.io/badge/📚-47%20仓库-22c55e?style=for-the-badge)]()
+[![自动更新](https://img.shields.io/badge/🤖-每日自动更新-f59e0b?style=for-the-badge)]()
+[![PRs Welcome](https://img.shields.io/badge/🙏-欢迎%20PR-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+[🇬🇧 English Version](README.en.md)
+
 > 数据抓取时间：2026-08-29 · Star 数由 GitHub Actions 每日自动更新，按热门度排序。
 
-<p align="center">
-  <a href="https://github.com/gotonote/awesome-agent-boom/stargazers">
-    <img src="https://img.shields.io/badge/⭐-觉得这份书单有用？点个 Star 支持一下-6c8cff?style=for-the-badge" alt="Star us">
-  </a>
-</p>
+</div>
 
-[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
-[![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![收录仓库](https://img.shields.io/badge/books-47-blue?style=flat-square)]()
-[![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
-[![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+---
 
 ## ✨ 为什么收藏这份书单
 
-- **数据是活的**：Star 数由 GitHub Actions 每日自动抓取更新，榜单永不落伍
-- **精选不注水**：47 个仓库按八大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
-- **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/awesome-agent-boom/)网页版
-- **每日黑板报**：工作日自动精选全球 AI / 科技要闻（[在线黑板报](docs/blackboard.html)）
+| | | |
+| --- | --- | --- |
+| 🔄 **数据是活的** | ⭐ **精选不注水** | 🌍 **双端可读** |
+| Star 数每日自动抓取更新，榜单永不落伍 | 47 个仓库按八大主题整理，标注难度 | 中英双语 README + 响应式在线书单 |
+| 📰 **每日黑板报** | 🧭 **难度分级** | 🤝 **开放共建** |
+| 工作日精选全球 AI / 科技要闻 | 🟢 入门 / 🟡 进阶 / 🔴 深度 | 1 分钟即可提交 PR 推荐新书 |
 
-📈 Star 增长趋势（每日自动更新）：
+📈 **Star 增长趋势**（每日自动更新）：
+
+<div align="center">
 
 [![Star 增长趋势](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+
+</div>
 
 > 💡 想推荐新书 / 发现错误？[提 Issue](https://github.com/gotonote/awesome-agent-boom/issues/new) 或直接 [提交 PR](https://github.com/gotonote/awesome-agent-boom/compare)，1 分钟即可完成，欢迎共建！
 
@@ -35,16 +41,12 @@
 
 ## 📑 目录
 
-- [📰 黑板报（每日 AI 科技要闻）](#blackboard)
-- [📖 一、开源图书（中文）](#chinese-books)
-- [🌍 二、开源图书 / 课程（英文）](#english-books)
-- [📦 三、商业图书配套代码仓库](#commercial-code)
-- [📑 四、论文清单 / 资源汇总](#papers-resources)
-- [🛠️ 五、Agent 规则书 / 编码 Agent 技能集](#agent-rules)
-- [✍️ 六、AI Agent 写书实验](#ai-writing)
-- [🧩 七、Agent Harness 生态](#harness-ecosystem)
-- [🤖 八、Agent 框架 / 工具库](#agent-frameworks)
-- [🔍 推荐阅读路线](#roadmap)
+| 📰 | [黑板报（每日 AI 科技要闻）](#blackboard) | 📖 | [一、开源图书（中文）](#chinese-books) |
+| --- | --- | --- | --- |
+| 🌍 | [二、开源图书 / 课程（英文）](#english-books) | 📦 | [三、商业图书配套代码仓库](#commercial-code) |
+| 📑 | [四、论文清单 / 资源汇总](#papers-resources) | 🛠️ | [五、Agent 规则书](#agent-rules) |
+| ✍️ | [六、AI Agent 写书实验](#ai-writing) | 🧩 | [七、Agent Harness 生态](#harness-ecosystem) |
+| 🤖 | [八、Agent 框架 / 工具库](#agent-frameworks) | 🔍 | [推荐阅读路线](#roadmap) |
 
 ---
 
@@ -154,3 +156,19 @@
 - **进阶（Harness 工程）**：《御舆：解码 Agent Harness》→ harness-books → Harness Engineering 橙皮书
 - **面试 / 求职**：AIGC-Interview-Book + Awesome-Agent-Papers
 - **动手实践**：Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
+
+---
+
+<div align="center">
+
+## ⭐ 如果这份书单对你有帮助
+
+请点亮右上角的 **Star**，支持我们持续更新！
+
+[![Star 仓库](https://img.shields.io/badge/⭐-Star%20这个仓库-6c8cff?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![提 Issue](https://img.shields.io/badge/🐛-提%20Issue%20纠错-e74c3c?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/issues/new)
+[![推荐新书](https://img.shields.io/badge/📚-推荐新书-22c55e?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/issues/new?template=recommend-repo.yml)
+
+Star 数由 GitHub Actions **每日自动更新** · 数据永远新鲜 🌱
+
+</div>

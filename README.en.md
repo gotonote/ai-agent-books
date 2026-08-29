@@ -1,52 +1,52 @@
-# 📚 AI Agent Books & Courses (Curated from GitHub)
+<div align="center">
 
-> [🇨🇳 中文版](README.md)
->
-> A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
+# 📚 AI Agent Books & Courses
+
+**A curated list of popular open-source books, courses & code repos on AI Agent / LLM Agent / Agentic Engineering — star counts auto-update daily.**
+
+[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=for-the-badge&logo=github)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![Online Site](https://img.shields.io/badge/🖥️-Online%20Site-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)
+[![Books](https://img.shields.io/badge/📚-47%20repos-22c55e?style=for-the-badge)]()
+[![Auto-update](https://img.shields.io/badge/🤖-Daily%20auto%20update-f59e0b?style=for-the-badge)]()
+[![PRs Welcome](https://img.shields.io/badge/🙏-PRs%20welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+[🇨🇳 中文版](README.md)
+
 > Data fetched: 2026-08-29 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
-<p align="center">
-  <a href="https://github.com/gotonote/awesome-agent-boom/stargazers">
-    <img src="https://img.shields.io/badge/⭐-Found this list useful? Give it a Star!-6c8cff?style=for-the-badge" alt="Star us">
-  </a>
-</p>
+</div>
 
-[![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
-[![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![Books](https://img.shields.io/badge/books-47-blue?style=flat-square)]()
-[![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
-[![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
-
-> Level legend: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced
+---
 
 ## ✨ Why star this list
 
-- **Always fresh**: Star counts are refreshed daily by GitHub Actions — no stale data
-- **Curated, not dumped**: 47 repos across 8 categories, each tagged with a difficulty level
-- **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/awesome-agent-boom/) with search & filtering
-- **Daily bulletin**: a hand-curated digest of global AI / tech news every workday ([view it](docs/blackboard.html))
+| | | |
+| --- | --- | --- |
+| 🔄 **Always fresh** | ⭐ **Curated, not dumped** | 🌍 **Read anywhere** |
+| Star counts refreshed daily by GitHub Actions | 47 repos across 8 categories, difficulty-tagged | Bilingual README + responsive web version |
+| 📰 **Daily bulletin** | 🧭 **Difficulty levels** | 🤝 **Open to contributions** |
+| Hand-curated AI / tech news every workday | 🟢 Beginner / 🟡 Intermediate / 🔴 Advanced | Suggest a book via issue or PR in ~1 minute |
 
-📈 Star growth trend (auto-updated daily):
+📈 **Star growth trend** (auto-updated daily):
+
+<div align="center">
 
 [![Star growth trend](https://gotonote.github.io/awesome-agent-boom/star-chart.svg)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+
+</div>
 
 > 💡 Want to suggest a book / report an issue? [Open an issue](https://github.com/gotonote/awesome-agent-boom/issues/new) or [submit a PR](https://github.com/gotonote/awesome-agent-boom/compare) — takes about a minute!
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [📰 Daily Tech Bulletin (Blackboard)](#blackboard)
-- [1. Open-source Books (Chinese)](#chinese-books)
-- [2. Open-source Books / Courses (English)](#english-books)
-- [3. Code Repos for Commercial Books](#commercial-code)
-- [4. Paper Lists / Resource Hubs](#papers-resources)
-- [5. Agent Rules / Coding-Agent Skill Sets](#agent-rules)
-- [6. AI-Agent Book-Writing Experiments](#ai-writing)
-- [7. Agent Harness Ecosystem](#harness-ecosystem)
-- [8. Agent Frameworks / Tools](#agent-frameworks)
-- [🔍 Recommended Reading Paths](#roadmap)
+| 📰 | [Daily Tech Bulletin (Blackboard)](#blackboard) | 📖 | [1. Open-source Books (Chinese)](#chinese-books) |
+| --- | --- | --- | --- |
+| 🌍 | [2. Open-source Books / Courses (English)](#english-books) | 📦 | [3. Code Repos for Commercial Books](#commercial-code) |
+| 📑 | [4. Paper Lists / Resource Hubs](#papers-resources) | 🛠️ | [5. Agent Rules / Skill Sets](#agent-rules) |
+| ✍️ | [6. AI-Agent Book-Writing Experiments](#ai-writing) | 🧩 | [7. Agent Harness Ecosystem](#harness-ecosystem) |
+| 🤖 | [8. Agent Frameworks / Tools](#agent-frameworks) | 🔍 | [Recommended Reading Paths](#roadmap) |
 
 ---
 
@@ -156,3 +156,19 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 - **Intermediate (Harness engineering)**: *Decoding the Agent Harness* → harness-books → Harness Engineering Orange Book
 - **Interview / job hunting**: AIGC-Interview-Book + Awesome-Agent-Papers
 - **Hands-on practice**: Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
+
+---
+
+<div align="center">
+
+## ⭐ If you find this list useful
+
+Please hit the **Star** button in the top-right corner — it keeps this project alive!
+
+[![Star this repo](https://img.shields.io/badge/⭐-Star%20this%20repo-6c8cff?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/stargazers)
+[![Open an issue](https://img.shields.io/badge/🐛-Report%20an%20issue-e74c3c?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/issues/new)
+[![Suggest a book](https://img.shields.io/badge/📚-Suggest%20a%20book-22c55e?style=for-the-badge)](https://github.com/gotonote/awesome-agent-boom/issues/new?template=recommend-repo.yml)
+
+Star counts are **auto-updated daily** by GitHub Actions · data never goes stale 🌱
+
+</div>
