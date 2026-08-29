@@ -34,7 +34,7 @@ jobs:
           if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md README.en.md docs/index.html
+            git add README.md README.en.md docs/index.html docs/blackboard.html docs/sitemap.xml docs/star-history.json docs/star-chart.svg
             git commit -m "docs: 自动更新 Star 数（$(TZ=Asia/Shanghai date +%Y-%m-%d)）"
             git push
           else

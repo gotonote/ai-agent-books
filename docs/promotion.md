@@ -11,7 +11,7 @@
 
 **正文：**
 
-最近在整理 AI Agent 学习资料，把 GitHub 上最热的 Agent 相关开源书、课程和配套代码仓库全部扒了一遍，精选出 62 个，按「中文书 / 英文课程 / 商业书配套代码 / 论文清单 / Agent 规则书 / 写书实验 / Agent Harness 生态」七大主题整理，并标注了入门难度：
+最近在整理 AI Agent 学习资料，把 GitHub 上最热的 Agent 相关开源书、课程和配套代码仓库全部扒了一遍，精选出 47 个，按「中文书 / 英文课程 / 商业书配套代码 / 论文清单 / Agent 规则书 / 写书实验 / Agent Harness 生态 / 框架工具库」八大主题整理，并标注了入门难度：
 
 **入门 🟢 推荐**
 - 《深入理解 AI Agent》（李博杰，41k⭐）—— 目前最火的中文 Agent 书，正文 + PDF + 配套代码全开源
@@ -27,7 +27,7 @@
 - LLM-Agent-Paper-List（8.2k⭐）—— SCIS 封面论文配套清单
 - Awesome-Agent-Papers —— Agent 综述方法论
 
-每本书的 Star 数由 GitHub Actions 每天自动更新，榜单实时刷新。完整书单（含七大主题分类和阅读路线）：
+每本书的 Star 数由 GitHub Actions 每天自动更新，榜单实时刷新。完整书单（含八大主题分类和阅读路线）：
 
 📚 https://github.com/gotonote/awesome-agent-boom
 🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/awesome-agent-boom/
@@ -40,11 +40,11 @@
 
 ## 二、英文版（适合 Reddit r/LocalLLaMA / r/MachineLearning / Hacker News / X）
 
-**Title:** I curated 62 open-source books & courses on AI Agents from GitHub (star counts auto-update daily)
+**Title:** I curated 47 open-source books & courses on AI Agents from GitHub (star counts auto-update daily)
 
 **Body:**
 
-Spent some time digging through GitHub for the best open-source resources on **AI agents / LLM agents / agentic engineering**. Collected 62 repos into one list, grouped into 7 categories with difficulty levels:
+Spent some time digging through GitHub for the best open-source resources on **AI agents / LLM agents / agentic engineering**. Collected 47 repos into one list, grouped into 7 categories with difficulty levels:
 
 - 🟢 **Beginner**: *Understanding AI Agents* (Bojie Li, 41k★, full text + PDF + code) · Hugging Face Agents Course (31k★) · Hermes Agent Orange Book
 - 🟡 **Intermediate**: *Decoding the Agent Harness* (420k words) · Harness Engineering (the design philosophy behind Claude Code & Codex) · Generative AI with LangChain (O'Reilly)

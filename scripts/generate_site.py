@@ -8,6 +8,7 @@ the latest star counts. Pure stdlib, no deps.
 """
 
 import html as html_mod
+import json
 import re
 from datetime import datetime
 from pathlib import Path
@@ -20,6 +21,10 @@ OUT = "docs/index.html"
 BB_DIR = Path("docs/blackboard")
 BB_ARCHIVE = "docs/blackboard.html"
 BB_DAYS_ON_HOME = 7
+
+# 本仓库 Star 历史（由 update_stars.py 每日记录）→ 渲染为 README 增长图
+STAR_HISTORY = "docs/star-history.json"
+STAR_CHART = "docs/star-chart.svg"
 
 DIFF = {
     "🟢": ("beginner", "入门"),
@@ -379,6 +384,67 @@ def card(row):
     )
 
 
+def render_star_chart() -> str:
+    """根据 docs/star-history.json 生成 SVG 折线图（README 展示，托管在 GitHub Pages）。"""
+    hist_path = Path(STAR_HISTORY)
+    hist = (
+        json.loads(hist_path.read_text(encoding="utf-8"))
+        if hist_path.exists()
+        else {}
+    )
+    dates = sorted(hist)
+    W, H, pad_l, pad_r, pad_t, pad_b = 800, 260, 70, 20, 30, 40
+    if len(dates) < 2:
+        msg = "📈 增长曲线数据积累中，每日自动更新…" if dates else "📈 Star 增长曲线（每日自动更新）"
+        return (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+            f'style="font-family:Segoe UI,PingFang SC,sans-serif">'
+            f'<rect width="{W}" height="{H}" rx="12" fill="#141a2b"/>'
+            f'<text x="{W/2}" y="{H/2}" fill="#8b93a7" font-size="16" text-anchor="middle">{msg}</text>'
+            f"</svg>"
+        )
+    vals = [hist[d] for d in dates]
+    vmin, vmax = min(vals), max(vals)
+    if vmax == vmin:
+        vmax = vmin + 1
+    plot_w, plot_h = W - pad_l - pad_r, H - pad_t - pad_b
+
+    def px(d: str, v: int) -> tuple:
+        x = pad_l + (dates.index(d) / (len(dates) - 1)) * plot_w
+        y = pad_t + (1 - (v - vmin) / (vmax - vmin)) * plot_h
+        return x, y
+
+    pts = " ".join(f"{px(d, v)[0]:.1f},{px(d, v)[1]:.1f}" for d, v in zip(dates, vals))
+    # 网格与 Y 轴刻度（3 档）
+    grid = []
+    for i in range(4):
+        v = vmin + (vmax - vmin) * i / 3
+        y = pad_t + plot_h * (1 - i / 3)
+        grid.append(f'<line x1="{pad_l}" y1="{y:.1f}" x2="{W - pad_r}" y2="{y:.1f}" stroke="#232b40"/>')
+        grid.append(f'<text x="{pad_l - 8}" y="{y + 4:.1f}" fill="#8b93a7" font-size="11" text-anchor="end">{int(round(v))}</text>')
+    # X 轴日期标签（首 / 中 / 尾）
+    xl = []
+    for i in (0, len(dates) // 2, len(dates) - 1):
+        d = dates[i]
+        xl.append(f'<text x="{px(d, vals[i])[0]:.1f}" y="{H - 14}" fill="#8b93a7" font-size="11" text-anchor="middle">{d}</text>')
+    latest = vals[-1]
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+        f'style="font-family:Segoe UI,PingFang SC,sans-serif">'
+        f'<rect width="{W}" height="{H}" rx="12" fill="#141a2b"/>'
+        f'<text x="{pad_l}" y="18" fill="#e6e9f2" font-size="14" font-weight="bold">⭐ Star 增长趋势 · 当前 {latest}</text>'
+        + "".join(grid)
+        + f'<polyline points="{pts}" fill="none" stroke="#6c8cff" stroke-width="2.5"/>'
+        + "".join(
+            f'<circle cx="{px(d, v)[0]:.1f}" cy="{px(d, v)[1]:.1f}" r="3.5" fill="#6c8cff"/>'
+            for d, v in zip(dates, vals)
+        )
+        + "".join(xl)
+        + f'<text x="{W - pad_r}" y="{H - 14}" fill="#8b93a7" font-size="11" text-anchor="end">由 GitHub Actions 每日自动更新</text>'
+        + "</svg>"
+    )
+
+
 def main():
     lines = Path(README).read_text(encoding="utf-8").splitlines()
 
@@ -498,6 +564,9 @@ def main():
 """
     Path("docs/sitemap.xml").write_text(sitemap, encoding="utf-8")
     print("Generated docs/sitemap.xml")
+
+    Path(STAR_CHART).write_text(render_star_chart(), encoding="utf-8")
+    print(f"Generated {STAR_CHART}")
 
     Path(BB_ARCHIVE).write_text(blackboard_archive_html(), encoding="utf-8")
     bb_days = len(load_blackboard())

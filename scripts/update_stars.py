@@ -18,6 +18,7 @@ import re
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 # path -> (regex for its crawl-timestamp line, replacement prefix)
 FILES = {
@@ -71,6 +72,24 @@ def main() -> int:
             print(f"  !! {repo}: {exc}", file=sys.stderr)
 
     now = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d")
+
+    # 记录本仓库自身的 Star 历史（用于 README 增长图，每天覆盖同一天记录）
+    try:
+        self_stars = fetch_stars(SELF)
+        hist_path = Path("docs/star-history.json")
+        hist = (
+            json.loads(hist_path.read_text(encoding="utf-8"))
+            if hist_path.exists()
+            else {}
+        )
+        hist[now] = self_stars
+        hist_path.write_text(
+            json.dumps(hist, ensure_ascii=False, indent=1), encoding="utf-8"
+        )
+        print(f"  star history: {now} -> {self_stars}")
+    except Exception as exc:
+        print(f"  !! star history: {exc}", file=sys.stderr)
+
     changed = False
     for path, (ts_re, ts_prefix) in FILES.items():
         content = contents[path]
