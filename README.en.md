@@ -3,7 +3,7 @@
 > [🇨🇳 中文版](README.md)
 >
 > A curated list of popular **open-source books, courses & code repos** on **AI Agent / LLM Agent / Agentic Engineering**, collected from GitHub.
-> Data fetched: 2026-08-28 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
+> Data fetched: 2026-08-29 · Star counts are auto-updated daily by GitHub Actions, sorted by popularity.
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
@@ -49,18 +49,18 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 
 | Repo | Stars | Description |
 | --- | --- | --- |
-| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 42.8k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
+| [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 43.0k | 🟢 Beginner · **"Understanding AI Agents: Design Principles & Engineering Practice"** (by Bojie Li) — full text, compiled PDF and per-chapter code. The most popular Chinese AI agent book right now. |
 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | 🟢 Beginner · **Hermes Agent from Zero to Pro · Orange Book series** — hands-on guide to Nous Research's open-source AI agent framework. |
-| [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.1k | 🟡 Intermediate · **"Yu Yu: Decoding the Agent Harness"** — 420k words dissecting the harness skeleton of AI agents; 15 chapters from the conversation loop to building your own agent harness. |
-| [yeasy/harness_engineering_guide](https://github.com/yeasy/harness_engineering_guide) | ⭐ 118 | 🟡 Intermediate · **Harness Engineering Guide** — agent = LLM + harness; deep dive into harness engineering principles, design, implementation & practice. |
-| [alchaincyf/harness-engineering-orange-book](https://github.com/alchaincyf/harness-engineering-orange-book) | ⭐ 94 | 🟡 Intermediate · **Harness Engineering · Orange Book series** — a practical guide to "reining in" AI agents. |
+| [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.2k | 🟡 Intermediate · **"Yu Yu: Decoding the Agent Harness"** — 420k words dissecting the harness skeleton of AI agents; 15 chapters from the conversation loop to building your own agent harness. |
+| [yeasy/harness_engineering_guide](https://github.com/yeasy/harness_engineering_guide) | ⭐ 117 | 🟡 Intermediate · **Harness Engineering Guide** — agent = LLM + harness; deep dive into harness engineering principles, design, implementation & practice. |
+| [alchaincyf/harness-engineering-orange-book](https://github.com/alchaincyf/harness-engineering-orange-book) | ⭐ 95 | 🟡 Intermediate · **Harness Engineering · Orange Book series** — a practical guide to "reining in" AI agents. |
 | [dawei008/openbook](https://github.com/dawei008/openbook) | ⭐ 34 | 🟡 Intermediate · **OpenBook: AI Agent Harness Engineering** — an open-source book on building production-grade agent harnesses (26 chapters). |
 
 ## <a id="english-books"></a>2. Open-source Books / Courses (English)
 
 | Repo | Stars | Description |
 | --- | --- | --- |
-| [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.5k | 🟢 Beginner · **Hugging Face Agents Course** — the most popular agent intro course (free, open-source textbook). |
+| [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.7k | 🟢 Beginner · **Hugging Face Agents Course** — the most popular agent intro course (free, open-source textbook). |
 | [wquguru/harness-books](https://github.com/wquguru/harness-books) | ⭐ 2.9k | 🟡 Intermediate · **Harness Engineering in two volumes** — the design philosophy behind Claude Code & Codex (constraints, query loops, etc.). |
 | [jayminwest/agentic-engineering-book](https://github.com/jayminwest/agentic-engineering-book) | ⭐ 197 | 🟢 Beginner · **Agentic Engineering** — a comprehensive, progressive guide to building agentic systems. |
 | [Siddhant-K-code/agentic-engineering-guide](https://github.com/Siddhant-K-code/agentic-engineering-guide) | ⭐ 157 | 🟢 Beginner · **Agentic Engineering Guide** (MDX format, interactive reading). |
@@ -107,13 +107,13 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 
 | # | Repo | Stars | One-liner |
 | --- | --- | --- | --- |
-| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 42.8k | Understanding AI Agents (Bojie Li) |
-| 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.5k | Hugging Face Agents Course |
+| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 43.0k | Understanding AI Agents (Bojie Li) |
+| 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.7k | Hugging Face Agents Course |
 | 3 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | LLM resource hub |
 | 4 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | LLM agent paper list |
 | 5 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | Hermes Agent Orange Book |
 | 6 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | Agent interview questions |
-| 7 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.1k | Decoding the Agent Harness |
+| 7 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.2k | Decoding the Agent Harness |
 | 8 | [wquguru/harness-books](https://github.com/wquguru/harness-books) | ⭐ 2.9k | Harness Engineering, 2 vols |
 | 9 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | LLM agent survey list |
 | 10 | [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books) | ⭐ 2.6k | Agent rules books |
