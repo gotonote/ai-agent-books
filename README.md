@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🚀 AI Agent 学习宝典
+# 🌍 打开 Agent 世界
 
-**GitHub 上最热门的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选，Star 数每日自动更新。**
+**🚀 AI Agent 学习宝典** · GitHub 上最热门的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选，Star 数每日自动更新。
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=for-the-badge&logo=github)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![在线书单](https://img.shields.io/badge/🖥️-在线书单-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)

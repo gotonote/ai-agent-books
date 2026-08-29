@@ -68,6 +68,14 @@ body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:n
 
 /* ── Hero ── */
 .hero { text-align:center; padding:56px 0 10px; }
+.slogan { font-size:clamp(2.4rem, 7vw, 4.2rem); font-weight:900; letter-spacing:.1em; line-height:1.15;
+  background:linear-gradient(120deg, #ffd700 0%, #ff7a00 45%, #ff2d78 90%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:slogan-glow 2.8s ease-in-out infinite; margin-bottom:12px; }
+@keyframes slogan-glow {
+  0%,100% { filter:drop-shadow(0 0 14px rgba(255,122,0,.30)); }
+  50%     { filter:drop-shadow(0 0 32px rgba(255,45,120,.55)); }
+}
 .hero .kicker { display:inline-flex; align-items:center; gap:6px; font-size:.76rem; letter-spacing:.14em;
   color:var(--accent); border:1px solid rgba(108,140,255,.35); background:rgba(108,140,255,.08);
   padding:5px 14px; border-radius:999px; margin-bottom:18px; font-weight:600; }
@@ -593,6 +601,7 @@ def main():
 <body>
 <div class="wrap">
   <header class="hero">
+    <div class="slogan">打开 Agent 世界</div>
     <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
     <h1>🚀 AI Agent 学习宝典</h1>
     <p>GitHub 上最热门的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
