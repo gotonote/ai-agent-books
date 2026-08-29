@@ -24,9 +24,6 @@ from pathlib import Path
 
 CN_TZ = timezone(timedelta(hours=8))
 OUT_DIR = "docs/blackboard"
-README_CN = "README.md"
-README_EN = "README.en.md"
-BB_LATEST_MARK = ("<!-- BLACKBOARD-LATEST-START -->", "<!-- BLACKBOARD-LATEST-END -->")
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = "deepseek-chat"
 USER_AGENT = "Mozilla/5.0 (gotonote/awesome-agent-boom blackboard)"
@@ -173,46 +170,6 @@ def render_raw_fallback(news: dict) -> str:
     return "\n".join(parts)
 
 
-def embed_latest_in_readme() -> None:
-    """把最新一期黑板报嵌入两个 README 的 blackboard 章节（<details> 折叠）。
-
-    用 <!-- BLACKBOARD-LATEST-START/END --> 占位符定位，只替换中间内容，
-    这样每次出刊后 README 里就能直接看到最新一期（GitHub 原生渲染 markdown）。
-    """
-    days = sorted(Path(OUT_DIR).glob("*.md"))
-    if not days:
-        return
-    latest = days[-1]
-    date = latest.stem
-    try:
-        weekday = WEEKDAYS_CN[datetime.strptime(date, "%Y-%m-%d").weekday()]
-    except ValueError:
-        weekday = ""
-
-    # 去掉文件开头的 H1 大标题（日期已展示在 <summary> 中），保留正文
-    lines = latest.read_text(encoding="utf-8").splitlines()
-    while lines and not lines[0].strip():
-        lines.pop(0)
-    if lines and lines[0].startswith("# "):
-        lines = lines[1:]
-    body = "\n".join(lines).strip()
-
-    start, end = BB_LATEST_MARK
-    for path in (README_CN, README_EN):
-        s = Path(path).read_text(encoding="utf-8")
-        if start not in s or end not in s:
-            print(f"  !! {path} 缺少黑板报占位符，跳过嵌入", file=sys.stderr)
-            continue
-        new = re.sub(
-            re.escape(start) + r".*?" + re.escape(end),
-            f"{start}\n\n{body}\n\n{end}",
-            s,
-            flags=re.S,
-        )
-        Path(path).write_text(new, encoding="utf-8")
-        print(f"  README 嵌入最新一期：{path} ({date} {weekday})")
-
-
 def main() -> int:
     now = datetime.now(CN_TZ)
     today = now.strftime("%Y-%m-%d")
@@ -256,7 +213,6 @@ def main() -> int:
         f.write(header + content + "\n")
     print(f"✅ 已保存 {out_path}")
 
-    embed_latest_in_readme()
     return 0
 
 

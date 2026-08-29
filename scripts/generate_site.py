@@ -400,29 +400,6 @@ def bb_day_html(day: dict, open_: bool) -> str:
     )
 
 
-def blackboard_section_html() -> str:
-    """主页「最近一周」板块。"""
-    days = load_blackboard()
-    if not days:
-        return (
-            '  <section id="blackboard" class="fade">\n'
-            "    <h2>📰 黑板报</h2>\n"
-            '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，自动出刊并长期归档。</p>\n'
-            '    <div class="bb-empty">🎨 黑板报正在筹备中，第一个工作日上午 9 点出刊（北京时间）</div>\n'
-            "  </section>"
-        )
-    week = [bb_day_html(d, True) for d in days[:BB_DAYS_ON_HOME]]
-    total = len(days)
-    return (
-        '  <section id="blackboard" class="fade">\n'
-        "    <h2>📰 黑板报 · 最近一周</h2>\n"
-        '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，以下为最近一周全部内容；往期可折叠，全部留存。</p>\n'
-        + "\n".join(week)
-        + f'\n    <p class="bb-link"><a href="blackboard.html">📚 查看全部 {total} 期 →</a></p>\n'
-        "  </section>"
-    )
-
-
 def blackboard_archive_html() -> str:
     """独立归档页 docs/blackboard.html：展示全部往期。"""
     days = load_blackboard()
@@ -574,8 +551,6 @@ def main():
         f'<div class="stat"><div class="ico">🔄</div><b>{fetched}</b><span>最近更新</span></div>'
     )
 
-    bb_section = blackboard_section_html()
-
     controls = (
         '<div class="controls">\n'
         '  <input class="search" id="search" type="search" '
@@ -626,8 +601,6 @@ def main():
     </div>
     {controls}
   </header>
-
-{bb_section}
 
 {chr(10).join(sections_html)}
 
