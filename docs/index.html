@@ -43,10 +43,13 @@ body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:n
 
 /* ── Hero ── */
 .hero { text-align:center; padding:56px 0 10px; }
-.slogan { font-size:clamp(2.4rem, 7vw, 4.2rem); font-weight:900; letter-spacing:.1em; line-height:1.15;
+.slogan { display:flex; align-items:center; justify-content:center; gap:.14em;
+  font-size:clamp(2.4rem, 7vw, 4.2rem); font-weight:900; letter-spacing:.1em; line-height:1.15;
   background:linear-gradient(120deg, #ffd700 0%, #ff7a00 45%, #ff2d78 90%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
   animation:slogan-glow 2.8s ease-in-out infinite; margin-bottom:12px; }
+.slogan svg { width:.85em; height:.85em; flex:none;
+  animation:slogan-glow 2.8s ease-in-out infinite; }
 @keyframes slogan-glow {
   0%,100% { filter:drop-shadow(0 0 14px rgba(255,122,0,.30)); }
   50%     { filter:drop-shadow(0 0 32px rgba(255,45,120,.55)); }
@@ -161,7 +164,22 @@ footer a:hover { text-decoration:underline; }
 <body>
 <div class="wrap">
   <header class="hero">
-    <div class="slogan">Agent 世界</div>
+    <div class="slogan">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="rb" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffd700"/><stop offset="55%" stop-color="#ff7a00"/><stop offset="100%" stop-color="#ff2d78"/>
+        </linearGradient></defs>
+        <line x1="32" y1="8" x2="32" y2="18" stroke="url(#rb)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="6" r="4.5" fill="url(#rb)"/>
+        <rect x="14" y="18" width="36" height="26" rx="9" fill="url(#rb)"/>
+        <circle cx="24.5" cy="31" r="4.5" fill="#0b0f1a"/>
+        <circle cx="39.5" cy="31" r="4.5" fill="#0b0f1a"/>
+        <rect x="26" y="38" width="12" height="3.5" rx="1.75" fill="#0b0f1a"/>
+        <rect x="20" y="46" width="24" height="14" rx="6" fill="url(#rb)" opacity=".88"/>
+        <circle cx="32" cy="53" r="3.2" fill="#0b0f1a"/>
+      </svg>
+      Agent 世界
+    </div>
     <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
     <h1>🚀 AI Agent 学习宝典</h1>
     <p>GitHub 上最热门的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>

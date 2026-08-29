@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌍 Agent 世界
+# 🤖 Agent 世界
 
 **🚀 AI Agent 学习宝典** · GitHub 上最热门的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选，Star 数每日自动更新。
 
