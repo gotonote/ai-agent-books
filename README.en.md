@@ -8,6 +8,7 @@
 [![Online Site](https://img.shields.io/badge/🖥️-Online%20Site-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)
 [![Books](https://img.shields.io/badge/📚-47%20repos-22c55e?style=for-the-badge)]()
 [![Auto-update](https://img.shields.io/badge/🤖-Daily%20auto%20update-f59e0b?style=for-the-badge)]()
+[![Bulletin](https://img.shields.io/badge/📰-Daily%20bulletin-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 [![PRs Welcome](https://img.shields.io/badge/🙏-PRs%20welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 [🇨🇳 中文版](README.md)
@@ -41,7 +42,7 @@
 
 ## 📑 Table of Contents
 
-| 📰 | [Daily Tech Bulletin (Blackboard)](#blackboard) | 📖 | [1. Open-source Books (Chinese)](#chinese-books) |
+| 📰 | [Daily bulletin](https://gotonote.github.io/awesome-agent-boom/blackboard.html) | 📖 | [1. Open-source Books (Chinese)](#chinese-books) |
 | --- | --- | --- | --- |
 | 🌍 | [2. Open-source Books / Courses (English)](#english-books) | 📦 | [3. Code Repos for Commercial Books](#commercial-code) |
 | 📑 | [4. Paper Lists / Resource Hubs](#papers-resources) | 🛠️ | [5. Agent Rules / Skill Sets](#agent-rules) |
@@ -50,11 +51,6 @@
 
 ---
 
-## <a id="blackboard"></a>📰 Daily Tech Bulletin (Blackboard)
-
-Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curating hot AI / tech news from Hacker News, SSPai, InfoQ China, QbitAI and IT Home — top headlines, categorized digest & an editor's note each issue.
-
-[📰 Web version](https://gotonote.github.io/awesome-agent-boom/blackboard.html) · [📚 Full archive](docs/blackboard/) · [🖥️ Booklist homepage](https://gotonote.github.io/awesome-agent-boom/)
 
 ---
 

@@ -8,6 +8,7 @@
 [![在线书单](https://img.shields.io/badge/🖥️-在线书单-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)
 [![收录仓库](https://img.shields.io/badge/📚-47%20仓库-22c55e?style=for-the-badge)]()
 [![自动更新](https://img.shields.io/badge/🤖-每日自动更新-f59e0b?style=for-the-badge)]()
+[![黑板报](https://img.shields.io/badge/📰-黑板报-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 [![PRs Welcome](https://img.shields.io/badge/🙏-欢迎%20PR-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 [🇬🇧 English Version](README.en.md)
@@ -41,7 +42,7 @@
 
 ## 📑 目录
 
-| 📰 | [黑板报（每日 AI 科技要闻）](#blackboard) | 📖 | [一、开源图书（中文）](#chinese-books) |
+| 📰 | [黑板报（每日 AI 要闻）](https://gotonote.github.io/awesome-agent-boom/blackboard.html) | 📖 | [一、开源图书（中文）](#chinese-books) |
 | --- | --- | --- | --- |
 | 🌍 | [二、开源图书 / 课程（英文）](#english-books) | 📦 | [三、商业图书配套代码仓库](#commercial-code) |
 | 📑 | [四、论文清单 / 资源汇总](#papers-resources) | 🛠️ | [五、Agent 规则书](#agent-rules) |
@@ -50,11 +51,6 @@
 
 ---
 
-## <a id="blackboard"></a>📰 黑板报 · 每日 AI 科技要闻
-
-工作日每天 09:00（北京时间）自动出刊一期「黑板报」，从 Hacker News、少数派、InfoQ、量子位、IT之家 的热门内容中精选全球 AI / 科技要闻，每期含今日头条、分类速览与编辑手记。
-
-[📰 网页版黑板报](https://gotonote.github.io/awesome-agent-boom/blackboard.html) · [📚 全部往期存档](docs/blackboard/) · [🖥️ 在线书单主页](https://gotonote.github.io/awesome-agent-boom/)
 
 ---
 
