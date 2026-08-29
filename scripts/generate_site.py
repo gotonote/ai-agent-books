@@ -375,10 +375,11 @@ def main():
         if m:
             anchors[m.group(1)] = i
 
-    sections_html, total_stars, repo_count = [], 0, 0
+    sections_html, total_stars, repo_count, listed_repos = [], 0, 0, []
     for idx, (aid, title) in enumerate(SECTIONS):
         rows = parse_rows(lines, anchors[aid], anchors[ORDER[idx + 1]])
         repo_count += len(rows)
+        listed_repos += [r["repo"] for r in rows]
         total_stars += sum(stars_num(r["stars"]) for r in rows)
         cards = "\n".join(card(r) for r in rows)
         sections_html.append(
@@ -416,6 +417,19 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Agent 热门书单 | Open-source AI Agent Books</title>
 <meta name="description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单，支持难度筛选与搜索，Star 数每日自动更新。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Agent 热门书单 | Open-source AI Agent Books">
+<meta property="og:description" content="GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单（{repo_count} 个仓库，每日自动更新 Star 数）。">
+<meta property="og:url" content="https://gotonote.github.io/awesome-agent-boom/">
+<meta property="og:site_name" content="AI Agent 热门书单">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent 热门书单 | Open-source AI Agent Books">
+<meta name="twitter:description" content="GitHub 上最热的 AI Agent 开源书籍、课程与配套代码仓库精选书单（{repo_count} 个仓库）。">
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"ItemList","name":"AI Agent 热门书单","description":"GitHub 上最热的 AI Agent / LLM Agent 开源书籍、课程与配套代码仓库精选书单","numberOfItems":{repo_count},"itemListElement":[
+{','.join('  {{"@type":"ListItem","position":{i},"url":"https://github.com/{r}"}}'.format(i=i, r=r) for i, r in enumerate(listed_repos, 1))}
+]}}
+</script>
 <style>{CSS}</style>
 </head>
 <body>
@@ -461,6 +475,16 @@ def main():
     Path(OUT).parent.mkdir(parents=True, exist_ok=True)
     Path(OUT).write_text(page, encoding="utf-8")
     print(f"Generated {OUT}: {repo_count} repos, {total_stars:,} total stars")
+
+    # sitemap.xml：帮助搜索引擎发现主页与黑板报归档页
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://gotonote.github.io/awesome-agent-boom/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://gotonote.github.io/awesome-agent-boom/blackboard.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+</urlset>
+"""
+    Path("docs/sitemap.xml").write_text(sitemap, encoding="utf-8")
+    print("Generated docs/sitemap.xml")
 
     Path(BB_ARCHIVE).write_text(blackboard_archive_html(), encoding="utf-8")
     bb_days = len(load_blackboard())
