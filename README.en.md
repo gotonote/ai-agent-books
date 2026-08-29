@@ -13,7 +13,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![Books](https://img.shields.io/badge/books-62-blue?style=flat-square)]()
+[![Books](https://img.shields.io/badge/books-79-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
 [![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
@@ -23,7 +23,7 @@
 ## ✨ Why star this list
 
 - **Always fresh**: Star counts are refreshed daily by GitHub Actions — no stale data
-- **Curated, not dumped**: 62 repos across 7 categories, each tagged with a difficulty level
+- **Curated, not dumped**: 79 repos across 8 categories, each tagged with a difficulty level
 - **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/awesome-agent-boom/) with search & filtering
 - **Daily bulletin**: a hand-curated digest of global AI / tech news every workday ([view it](docs/blackboard.html))
 
@@ -45,6 +45,7 @@
 - [5. Agent Rules / Coding-Agent Skill Sets](#agent-rules)
 - [6. AI-Agent Book-Writing Experiments](#ai-writing)
 - [7. Agent Harness Ecosystem](#harness-ecosystem)
+- [8. Agent Frameworks / Tools](#agent-frameworks)
 - [🔍 Recommended Reading Paths](#roadmap)
 
 ---
@@ -154,6 +155,30 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 | [Darwin-Agent/HarnessX](https://github.com/Darwin-Agent/HarnessX) | ⭐ 452 | 🟡 Intermediate · **HarnessX** — a "harness foundry": forge any combination of agent harnesses. |
 | [ApodexAI/AgentHarness](https://github.com/ApodexAI/AgentHarness) | ⭐ 424 | 🔴 Advanced · **AgentHarness** — evaluation harness for deep-research benchmarks. |
 | [CodelyTV/agent-harness](https://github.com/CodelyTV/agent-harness) | ⭐ 231 | 🟡 Intermediate · **agent-harness (CodelyTV)** — skills, plugins & hooks for teams. |
+
+---
+
+## <a id="agent-frameworks"></a>8. Agent Frameworks / Tools
+
+| Repo | Stars | Description |
+| --- | --- | --- |
+| [n8n-io/n8n](https://github.com/n8n-io/n8n) | ⭐ 202.8k | 🟢 Beginner · **n8n** — fair-code workflow automation platform with native AI agents; build agent flows visually. |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | ⭐ 187.0k | 🟡 Intermediate · **AutoGPT** — the pioneering autonomous agent platform, accessible AI for everyone. |
+| [langgenius/dify](https://github.com/langgenius/dify) | ⭐ 153.8k | 🟢 Beginner · **Dify** — open-source LLM app platform; visually build agentic workflows & RAG pipelines. |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | ⭐ 145.2k | 🟡 Intermediate · **LangChain** — the agent-engineering platform; the most popular LLM framework (Python/JS). |
+| [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐ 60.7k | 🟡 Intermediate · **AutoGen (Microsoft)** — programming framework for agentic AI; multi-agent conversation & orchestration. |
+| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐ 57.8k | 🟢 Beginner · **CrewAI** — role-playing multi-agent framework: roles + tasks + tools out of the box. |
+| [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | ⭐ 55.4k | 🟢 Beginner · **Flowise** — drag & drop visual builder for AI agents & workflows (open source). |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | ⭐ 51.9k | 🟡 Intermediate · **LlamaIndex** — the leading document-agent & RAG platform connecting data to LLMs. |
+| [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐ 40.6k | 🔴 Advanced · **LangGraph** — low-level orchestration for resilient agents via state graphs (by LangChain). |
+| [stanford-oval/storm](https://github.com/stanford-oval/storm) | ⭐ 31.2k | 🟡 Intermediate · **STORM (Stanford)** — LLM knowledge-curation system; multi-agent research report writing. |
+| [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | ⭐ 29.1k | 🟢 Beginner · **OpenAI Agents SDK** — lightweight, powerful multi-agent workflow framework (official). |
+| [huggingface/smolagents](https://github.com/huggingface/smolagents) | ⭐ 29.0k | 🟢 Beginner · **smolagents (Hugging Face)** — a barebones code-first agent library. |
+| [deepset-ai/haystack](https://github.com/deepset-ai/haystack) | ⭐ 26.4k | 🟡 Intermediate · **Haystack (deepset)** — open-source AI orchestration for production RAG & agent pipelines. |
+| [google/adk-python](https://github.com/google/adk-python) | ⭐ 21.3k | 🟡 Intermediate · **Agent Development Kit (Google)** — code-first Python toolkit for building agents. |
+| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | ⭐ 19.6k | 🟢 Beginner · **Pydantic AI** — build agents type-safely, the Python way (from the Pydantic team). |
+| [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | ⭐ 17.0k | 🟢 Beginner · **Qwen-Agent** — agent framework & apps built on Qwen (Alibaba). |
+| [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐ 13.2k | 🟡 Intermediate · **Agent Framework (Microsoft)** — build, orchestrate & deploy production agents. |
 
 ---
 

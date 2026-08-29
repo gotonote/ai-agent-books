@@ -13,7 +13,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![收录仓库](https://img.shields.io/badge/books-62-blue?style=flat-square)]()
+[![收录仓库](https://img.shields.io/badge/books-79-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
 [![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
@@ -21,7 +21,7 @@
 ## ✨ 为什么收藏这份书单
 
 - **数据是活的**：Star 数由 GitHub Actions 每日自动抓取更新，榜单永不落伍
-- **精选不注水**：62 个仓库按七大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
+- **精选不注水**：79 个仓库按八大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
 - **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/awesome-agent-boom/)网页版
 - **每日黑板报**：工作日自动精选全球 AI / 科技要闻（[在线黑板报](docs/blackboard.html)）
 
@@ -43,6 +43,7 @@
 - [🛠️ 五、Agent 规则书 / 编码 Agent 技能集](#agent-rules)
 - [✍️ 六、AI Agent 写书实验](#ai-writing)
 - [🧩 七、Agent Harness 生态](#harness-ecosystem)
+- [🤖 八、Agent 框架 / 工具库](#agent-frameworks)
 - [🔍 推荐阅读路线](#roadmap)
 
 ---
@@ -152,6 +153,30 @@
 | [Darwin-Agent/HarnessX](https://github.com/Darwin-Agent/HarnessX) | ⭐ 452 | 🟡 进阶 · **HarnessX**：Harness 锻造厂——一键锻造任意 Agent Harness 组合 |
 | [ApodexAI/AgentHarness](https://github.com/ApodexAI/AgentHarness) | ⭐ 424 | 🔴 深度 · **AgentHarness**：Apodex-1.0 深度研究基准评估 Harness |
 | [CodelyTV/agent-harness](https://github.com/CodelyTV/agent-harness) | ⭐ 231 | 🟡 进阶 · **agent-harness（CodelyTV）**：Skills / 插件 / Hooks 一体的团队 Agent Harness |
+
+---
+
+## <a id="agent-frameworks"></a>🤖 八、Agent 框架 / 工具库
+
+| 仓库 | Star | 说明 |
+| --- | --- | --- |
+| [n8n-io/n8n](https://github.com/n8n-io/n8n) | ⭐ 202.8k | 🟢 入门 · **n8n**：开源工作流自动化平台（fair-code），原生 AI Agent 能力，可视化编排 Agent 流程 |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | ⭐ 187.0k | 🟡 进阶 · **AutoGPT**：自主 AI Agent 先驱项目，人人都能用的通用 Agent 平台 |
+| [langgenius/dify](https://github.com/langgenius/dify) | ⭐ 153.8k | 🟢 入门 · **Dify**：开源 LLM 应用开发平台，可视化构建 Agentic 工作流与 RAG 流水线 |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | ⭐ 145.2k | 🟡 进阶 · **LangChain**：Agent 工程平台，最流行的 LLM 应用开发框架（Python/JS） |
+| [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐ 60.7k | 🟡 进阶 · **AutoGen**（微软）：面向 Agentic AI 的编程框架，多 Agent 对话与编排 |
+| [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐ 57.8k | 🟢 入门 · **CrewAI**：角色扮演式多 Agent 协作框架，「角色 + 任务 + 工具」开箱即用 |
+| [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | ⭐ 55.4k | 🟢 入门 · **Flowise**：可视化拖拽构建 AI Agent 与工作流（开源） |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | ⭐ 51.9k | 🟡 进阶 · **LlamaIndex**：领先的文档 Agent 与 RAG 平台，连接数据与 LLM |
+| [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐ 40.6k | 🔴 深度 · **LangGraph**：用状态图构建弹性 Agent 的低层编排框架（LangChain 出品） |
+| [stanford-oval/storm](https://github.com/stanford-oval/storm) | ⭐ 31.2k | 🟡 进阶 · **STORM**（斯坦福）：LLM 知识策展系统，多智能体协同撰写研究报告 |
+| [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | ⭐ 29.1k | 🟢 入门 · **OpenAI Agents SDK**：轻量强大的多 Agent 工作流框架（官方） |
+| [huggingface/smolagents](https://github.com/huggingface/smolagents) | ⭐ 29.0k | 🟢 入门 · **smolagents**（Hugging Face）：极简 Agent 库——代码即行动（code-first） |
+| [deepset-ai/haystack](https://github.com/deepset-ai/haystack) | ⭐ 26.4k | 🟡 进阶 · **Haystack**（deepset）：开源 AI 编排框架，RAG 与 Agent 生产级管道 |
+| [google/adk-python](https://github.com/google/adk-python) | ⭐ 21.3k | 🟡 进阶 · **Agent Development Kit**（Google）：code-first 的 Agent 构建工具包 |
+| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | ⭐ 19.6k | 🟢 入门 · **Pydantic AI**：以类型安全的方式构建 Agent（Pydantic 官方） |
+| [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | ⭐ 17.0k | 🟢 入门 · **Qwen-Agent**（通义千问）：Qwen 大模型上的 Agent 框架与应用 |
+| [microsoft/agent-framework](https://github.com/microsoft/agent-framework) | ⭐ 13.2k | 🟡 进阶 · **Agent Framework**（微软）：构建、编排与部署生产级 Agent |
 
 ---
 

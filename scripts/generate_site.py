@@ -11,6 +11,7 @@ import html as html_mod
 import re
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote_plus
 
 README = "README.md"
 OUT = "docs/index.html"
@@ -33,6 +34,7 @@ SECTIONS = [
     ("agent-rules", "🛠️ Agent 规则书"),
     ("ai-writing", "✍️ AI Agent 写书实验"),
     ("harness-ecosystem", "🧩 Agent Harness 生态"),
+    ("agent-frameworks", "🤖 Agent 框架 / 工具库"),
 ]
 ORDER = [s[0] for s in SECTIONS] + ["roadmap"]
 
@@ -99,6 +101,8 @@ footer a { color:var(--accent); text-decoration:none; }
 .bb-day summary:hover { background:#0f1526; }
 .bb-day[open] summary { border-bottom:1px solid var(--line); background:#0f1526; }
 .bb-day .bb-tag { font-size:.72rem; color:var(--muted); font-weight:400; border:1px solid var(--line); border-radius:20px; padding:1px 10px; }
+.bb-share { font-size:.72rem; color:var(--accent); border:1px solid var(--line); border-radius:20px; padding:1px 10px; margin-left:6px; text-decoration:none; }
+.bb-share:hover { border-color:var(--accent); color:var(--accent); }
 .bb-body { padding:6px 22px 18px; font-size:.92rem; }
 .bb-body h3, .bb-body h4 { margin:14px 0 6px; color:var(--accent); font-size:1rem; }
 .bb-body h3 { font-size:1.05rem; }
@@ -278,9 +282,18 @@ def load_blackboard() -> list:
 
 
 def bb_day_html(day: dict, open_: bool) -> str:
+    bb_url = "https://gotonote.github.io/awesome-agent-boom/blackboard.html"
+    share_text = f"📰 黑板报 {day['date']}：AI Agent / 科技每日要闻精选（Star 数每日自动更新）"
+    share_href = (
+        "https://twitter.com/intent/tweet?text="
+        + quote_plus(share_text)
+        + "&url=" + quote_plus(bb_url)
+    )
     return (
         f'  <details class="bb-day"{" open" if open_ else ""}>\n'
-        f'    <summary>📅 {day["date"]}（{day["weekday"]}）<span class="bb-tag">黑板报</span></summary>\n'
+        f'    <summary>📅 {day["date"]}（{day["weekday"]}）<span class="bb-tag">黑板报</span>'
+        f'<a class="bb-share" href="{share_href}" target="_blank" rel="noopener" '
+        f'title="分享到 X / Twitter" onclick="event.stopPropagation()">分享</a></summary>\n'
         f'    <div class="bb-body">\n{day["html"]}\n    </div>\n'
         "  </details>"
     )
