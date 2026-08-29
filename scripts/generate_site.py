@@ -43,91 +43,187 @@ SECTIONS = [
 ]
 ORDER = [s[0] for s in SECTIONS] + ["roadmap"]
 
-CSS = """
-:root { --bg:#0b0f1a; --card:#141a2b; --line:#232b40; --text:#e6e9f2; --muted:#8b93a7; --accent:#6c8cff; }
+CSS = r"""
+:root { --bg:#070b15; --card:rgba(255,255,255,.035); --card-solid:#0e1526;
+  --line:rgba(255,255,255,.08); --text:#e8ecf6; --muted:#8a93a8;
+  --accent:#6c8cff; --accent2:#8b5cf6; --gold:#ffb454; --radius:16px; }
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  background:radial-gradient(1200px 600px at 80% -10%, #1b2a4a 0%, var(--bg) 55%); color:var(--text); line-height:1.6; }
-.wrap { max-width:1080px; margin:0 auto; padding:48px 20px 80px; }
-header { text-align:center; padding:24px 0 8px; }
-header h1 { font-size:2rem; letter-spacing:.5px; }
-header p { color:var(--muted); margin-top:8px; font-size:.95rem; }
-.stats { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:22px 0 6px; }
-.stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 18px; font-size:.9rem; }
-.stat b { color:var(--accent); font-size:1.15rem; margin-right:4px; }
-.actions { display:flex; gap:12px; justify-content:center; margin:22px 0 10px; flex-wrap:wrap; }
-.btn { display:inline-block; padding:9px 18px; border-radius:10px; text-decoration:none; font-size:.92rem; border:1px solid var(--line); color:var(--text); background:var(--card); transition:.15s; }
-.btn:hover { border-color:var(--accent); transform:translateY(-1px); }
-.btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
-.controls { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; margin:26px 0 6px; }
-.search { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:10px; padding:9px 14px; font-size:.9rem; width:280px; max-width:100%; outline:none; }
-.search:focus { border-color:var(--accent); }
-.filter-btn { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:20px; padding:6px 15px; font-size:.83rem; cursor:pointer; transition:.15s; }
-.filter-btn:hover { border-color:var(--accent); }
-.filter-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-.count { color:var(--muted); font-size:.82rem; text-align:center; margin:6px 0 0; }
-section { margin-top:44px; }
-section h2 { font-size:1.3rem; margin-bottom:16px; padding-left:12px; border-left:4px solid var(--accent); }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; }
-.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-decoration:none; color:var(--text); transition:.15s; }
-.card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  color:var(--text); line-height:1.6; min-height:100vh;
+  background:
+    radial-gradient(1100px 520px at 85% -8%, rgba(108,140,255,.16), transparent 60%),
+    radial-gradient(900px 460px at -5% 12%, rgba(139,92,246,.13), transparent 55%),
+    radial-gradient(1200px 700px at 50% 115%, rgba(64,196,255,.07), transparent 60%),
+    var(--bg);
+  background-attachment:fixed; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%);
+          mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%); }
+.wrap { max-width:1120px; margin:0 auto; padding:20px 20px 80px; }
+
+/* ── Hero ── */
+.hero { text-align:center; padding:56px 0 10px; }
+.hero .kicker { display:inline-flex; align-items:center; gap:6px; font-size:.76rem; letter-spacing:.14em;
+  color:var(--accent); border:1px solid rgba(108,140,255,.35); background:rgba(108,140,255,.08);
+  padding:5px 14px; border-radius:999px; margin-bottom:18px; font-weight:600; }
+.hero h1 { font-size:clamp(1.9rem, 4.5vw, 2.8rem); font-weight:800; letter-spacing:.5px; line-height:1.2;
+  background:linear-gradient(115deg, #fff 30%, var(--accent) 65%, var(--accent2));
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p { color:var(--muted); margin-top:14px; font-size:1rem; max-width:660px; margin-left:auto; margin-right:auto; }
+.stats { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:32px 0 6px; }
+.stat { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px 26px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 30px rgba(0,0,0,.25); min-width:130px; }
+.stat .ico { font-size:1.25rem; }
+.stat b { display:block; font-size:1.55rem; color:#fff; margin-top:2px; letter-spacing:.5px; }
+.stat span { color:var(--muted); font-size:.78rem; }
+.actions { display:flex; gap:12px; justify-content:center; margin:26px 0 6px; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:6px; padding:11px 22px; border-radius:12px;
+  text-decoration:none; font-size:.92rem; font-weight:600; border:1px solid var(--line);
+  color:var(--text); background:var(--card); backdrop-filter:blur(8px); transition:.18s; }
+.btn:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(108,140,255,.18); }
+.btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent2)); border-color:transparent; color:#fff;
+  box-shadow:0 6px 24px rgba(108,140,255,.35); }
+.btn.primary:hover { box-shadow:0 10px 30px rgba(108,140,255,.45); }
+
+/* ── 搜索 / 筛选 ── */
+.controls { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap;
+  margin:34px 0 12px; position:sticky; top:10px; z-index:40; }
+.search { background:var(--card-solid); border:1px solid var(--line); color:var(--text);
+  border-radius:12px; padding:11px 16px; font-size:.9rem; width:300px; max-width:100%;
+  outline:none; backdrop-filter:blur(10px); transition:border-color .15s, box-shadow .15s; }
+.search:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(108,140,255,.15); }
+.search::placeholder { color:#5d6678; }
+.filter-btn { background:var(--card-solid); border:1px solid var(--line); color:var(--muted);
+  border-radius:999px; padding:8px 18px; font-size:.85rem; cursor:pointer; transition:.15s;
+  backdrop-filter:blur(10px); font-weight:500; }
+.filter-btn:hover { border-color:var(--accent); color:var(--text); }
+.filter-btn.active { background:linear-gradient(135deg, var(--accent), var(--accent2));
+  border-color:transparent; color:#fff; box-shadow:0 4px 14px rgba(108,140,255,.3); }
+.count { color:var(--muted); font-size:.82rem; text-align:center; margin:4px 0 0; }
+
+/* ── 分类 ── */
+section { margin-top:56px; }
+section h2 { font-size:1.35rem; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+section h2::after { content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, var(--line), transparent); }
+
+/* ── 卡片 ── */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; }
+.card { position:relative; display:block; background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px 20px 18px 22px; text-decoration:none; color:var(--text);
+  overflow:hidden; transition:transform .2s, border-color .2s, box-shadow .2s, background .2s; }
+.card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--diff, var(--accent)); opacity:.85; }
+.card[data-diff="beginner"] { --diff:#4ade80; }
+.card[data-diff="intermediate"] { --diff:#facc15; }
+.card[data-diff="advanced"] { --diff:#f87171; }
+.card:hover { transform:translateY(-4px); border-color:rgba(108,140,255,.5);
+  box-shadow:0 14px 36px rgba(0,0,0,.45), 0 0 0 1px rgba(108,140,255,.12);
+  background:rgba(255,255,255,.055); }
 .card.hidden { display:none; }
 .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
-.repo { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; color:var(--accent); }
-.stars { font-size:.85rem; white-space:nowrap; }
-.card-name { font-weight:600; margin-top:8px; font-size:.98rem; }
-.card-desc { color:var(--muted); font-size:.86rem; margin-top:6px; }
-.badge { display:inline-block; font-size:.72rem; padding:1px 8px; border-radius:20px; margin-right:6px; vertical-align:1px; }
-.badge.beginner { background:#12351f; color:#4ade80; }
-.badge.intermediate { background:#3a2c10; color:#facc15; }
-.badge.advanced { background:#3a1414; color:#f87171; }
-table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; font-size:.9rem; }
-th, td { padding:10px 14px; text-align:left; border-bottom:1px solid var(--line); }
-th { background:#10162a; color:var(--muted); font-weight:600; }
-tr:last-child td { border-bottom:none; }
-td a { color:var(--accent); text-decoration:none; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; }
-td.rank { color:var(--muted); width:40px; }
-td.stars { white-space:nowrap; text-align:right; }
-.roadmap { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; font-size:.92rem; }
-.roadmap li { margin:8px 0; list-style:none; }
+.repo { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem; color:var(--accent);
+  display:inline-flex; align-items:center; gap:6px; word-break:break-all; }
+.repo svg { width:14px; height:14px; flex:none; opacity:.85; }
+.stars { font-size:.86rem; white-space:nowrap; color:var(--gold); font-weight:700; }
+.card-name { font-weight:700; margin-top:10px; font-size:1rem; color:#fff; line-height:1.4; }
+.card-desc { color:var(--muted); font-size:.85rem; margin-top:7px; line-height:1.55; }
+
+/* ── 徽章 ── */
+.badge { display:inline-flex; align-items:center; font-size:.7rem; padding:2px 9px; border-radius:999px;
+  margin-right:6px; font-weight:600; letter-spacing:.02em; }
+.badge.beginner { background:rgba(74,222,128,.13); color:#4ade80; }
+.badge.intermediate { background:rgba(250,204,21,.13); color:#facc15; }
+.badge.advanced { background:rgba(248,113,113,.13); color:#f87171; }
+
+/* ── 推荐阅读路线 ── */
+.roadmap { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:24px 28px; font-size:.93rem; backdrop-filter:blur(10px); }
+.roadmap ul { list-style:none; }
+.roadmap li { margin:10px 0; display:flex; gap:10px; align-items:flex-start; }
+.roadmap li::before { content:"\2192"; color:var(--accent); font-weight:700; flex:none; }
 .roadmap b { color:var(--accent); }
-footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:56px; }
+
+/* ── Footer ── */
+footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:64px;
+  padding-top:24px; border-top:1px solid var(--line); }
 footer a { color:var(--accent); text-decoration:none; }
-@media (max-width:640px) { .grid { grid-template-columns:1fr; } header h1 { font-size:1.5rem; } .search { width:100%; } }
+footer a:hover { text-decoration:underline; }
+
+/* ── 滚动动画 ── */
+.fade { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+.fade.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .fade { opacity:1; transform:none; transition:none; }
+}
+
+/* ── 响应式 ── */
+@media (max-width:720px) {
+  .grid { grid-template-columns:1fr; }
+  .hero { padding-top:40px; }
+  .search { width:100%; }
+  .controls { position:static; }
+  .stat { padding:12px 18px; min-width:104px; }
+}
+
 /* ── 黑板报 ── */
 .bb-intro { color:var(--muted); font-size:.9rem; margin-bottom:16px; }
 .bb-intro a { color:var(--accent); text-decoration:none; }
 .bb-intro a:hover { text-decoration:underline; }
-.bb-day { background:var(--card); border:1px solid var(--line); border-radius:14px; margin-bottom:14px; overflow:hidden; }
-.bb-day summary { cursor:pointer; padding:14px 18px; font-weight:600; font-size:1rem; list-style:none; user-select:none; display:flex; justify-content:space-between; align-items:center; }
+.bb-day { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  margin-bottom:14px; overflow:hidden; backdrop-filter:blur(10px); transition:border-color .15s; }
+.bb-day summary { cursor:pointer; padding:15px 20px; font-weight:600; font-size:1rem; list-style:none;
+  user-select:none; display:flex; justify-content:space-between; align-items:center; transition:background .15s; }
 .bb-day summary::-webkit-details-marker { display:none; }
-.bb-day summary::after { content:'▸'; color:var(--muted); transition:.15s; }
-.bb-day[open] summary::after { transform:rotate(90deg); }
-.bb-day summary:hover { background:#0f1526; }
-.bb-day[open] summary { border-bottom:1px solid var(--line); background:#0f1526; }
-.bb-day .bb-tag { font-size:.72rem; color:var(--muted); font-weight:400; border:1px solid var(--line); border-radius:20px; padding:1px 10px; }
-.bb-share { font-size:.72rem; color:var(--accent); border:1px solid var(--line); border-radius:20px; padding:1px 10px; margin-left:6px; text-decoration:none; }
-.bb-share:hover { border-color:var(--accent); color:var(--accent); }
-.bb-body { padding:6px 22px 18px; font-size:.92rem; }
+.bb-day summary::after { content:"\25BE"; color:var(--muted); transition:transform .2s; font-size:.9em; }
+.bb-day[open] summary::after { transform:rotate(180deg); }
+.bb-day summary:hover { background:rgba(255,255,255,.04); }
+.bb-day[open] summary { border-bottom:1px solid var(--line); background:rgba(255,255,255,.03); }
+.bb-day .bb-tag { font-size:.7rem; color:var(--muted); font-weight:400; border:1px solid var(--line);
+  border-radius:999px; padding:2px 11px; }
+.bb-share { font-size:.7rem; color:var(--accent); border:1px solid var(--line); border-radius:999px;
+  padding:2px 11px; margin-left:6px; text-decoration:none; transition:.15s; }
+.bb-share:hover { border-color:var(--accent); color:var(--accent); background:rgba(108,140,255,.08); }
+.bb-body { padding:8px 24px 20px; font-size:.92rem; }
 .bb-body h3, .bb-body h4 { margin:14px 0 6px; color:var(--accent); font-size:1rem; }
 .bb-body h3 { font-size:1.05rem; }
 .bb-body ol { padding-left:22px; margin:6px 0; }
 .bb-body li { margin:5px 0; }
 .bb-body a { color:var(--accent); text-decoration:none; }
 .bb-body a:hover { text-decoration:underline; }
-.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px; margin:8px 0; font-size:.85rem; }
+.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px;
+  margin:8px 0; font-size:.85rem; }
 .bb-body p { margin:8px 0; }
 .bb-body hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
-.bb-body code { background:#0f1526; padding:1px 6px; border-radius:6px; font-size:.85em; }
-.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:28px; text-align:center; font-size:.9rem; }
+.bb-body code { background:rgba(255,255,255,.06); padding:1px 7px; border-radius:6px; font-size:.85em; }
+.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line);
+  border-radius:var(--radius); padding:32px; text-align:center; font-size:.9rem; }
 .bb-link { text-align:right; margin:2px 0 18px; }
 .bb-link a { color:var(--accent); text-decoration:none; font-size:.85rem; }
 .bb-link a:hover { text-decoration:underline; }
 """
 
-JS = """
+JS = r"""
 <script>
 (function () {
+  // 滚动淡入动画（渐进增强：不支持 IntersectionObserver 时直接显示）
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.04 });
+    document.querySelectorAll('.fade').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade').forEach(function (el) { el.classList.add('in'); });
+  }
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
   var search = document.getElementById('search');
   var btns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
@@ -309,7 +405,7 @@ def blackboard_section_html() -> str:
     days = load_blackboard()
     if not days:
         return (
-            '  <section id="blackboard">\n'
+            '  <section id="blackboard" class="fade">\n'
             "    <h2>📰 黑板报</h2>\n"
             '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，自动出刊并长期归档。</p>\n'
             '    <div class="bb-empty">🎨 黑板报正在筹备中，第一个工作日上午 9 点出刊（北京时间）</div>\n'
@@ -318,7 +414,7 @@ def blackboard_section_html() -> str:
     week = [bb_day_html(d, True) for d in days[:BB_DAYS_ON_HOME]]
     total = len(days)
     return (
-        '  <section id="blackboard">\n'
+        '  <section id="blackboard" class="fade">\n'
         "    <h2>📰 黑板报 · 最近一周</h2>\n"
         '    <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，以下为最近一周全部内容；往期可折叠，全部留存。</p>\n'
         + "\n".join(week)
@@ -364,6 +460,9 @@ def blackboard_archive_html() -> str:
 """
 
 
+GITHUB_ICON = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>'
+
+
 def card(row):
     badge = (
         f'<span class="badge {row["diff_cls"]}">{row["diff_label"]}</span>'
@@ -375,7 +474,7 @@ def card(row):
         f'target="_blank" rel="noopener" data-diff="{row["diff_cls"] or "none"}" '
         f'data-search="{row["search"]}">\n'
         f'        <div class="card-top">\n'
-        f'          <span class="repo">{row["repo"]}</span>\n'
+        f'          <span class="repo">{GITHUB_ICON}{row["repo"]}</span>\n'
         f'          <span class="stars">⭐ {row["stars"]}</span>\n'
         f"        </div>\n"
         f'        <div class="card-name">{row["name"]}</div>\n'
@@ -462,7 +561,7 @@ def main():
         total_stars += sum(stars_num(r["stars"]) for r in rows)
         cards = "\n".join(card(r) for r in rows)
         sections_html.append(
-            f'  <section id="{aid}">\n    <h2>{title}</h2>\n'
+            f'  <section id="{aid}" class="fade">\n    <h2>{title}</h2>\n'
             f'    <div class="grid">\n{cards}\n    </div>\n  </section>'
         )
 
@@ -470,9 +569,9 @@ def main():
     fetched = m_date.group(1) if m_date else "-"
 
     stats = (
-        f'<div class="stat">📚 收录 <b>{repo_count}</b> 个仓库</div>\n'
-        f'<div class="stat">⭐ 合计 <b>{total_stars:,}</b> stars</div>\n'
-        f'<div class="stat">🔄 数据 <b>{fetched}</b> 自动更新</div>'
+        f'<div class="stat"><div class="ico">📚</div><b>{repo_count}</b><span>收录仓库</span></div>\n'
+        f'<div class="stat"><div class="ico">⭐</div><b>{total_stars:,}</b><span>合计 Stars</span></div>\n'
+        f'<div class="stat"><div class="ico">🔄</div><b>{fetched}</b><span>最近更新</span></div>'
     )
 
     bb_section = blackboard_section_html()
@@ -513,9 +612,10 @@ def main():
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="hero">
+    <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
     <h1>📚 AI Agent 热门书单</h1>
-    <p>GitHub 上最热的开源书籍、课程与配套代码仓库 · 按热门度排序 · Star 数每日自动更新</p>
+    <p>GitHub 上最热的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
     <div class="stats">
 {stats}
     </div>
@@ -531,7 +631,7 @@ def main():
 
 {chr(10).join(sections_html)}
 
-  <section id="roadmap">
+  <section id="roadmap" class="fade">
     <h2>🔍 推荐阅读路线</h2>
     <div class="roadmap">
       <ul>
@@ -544,7 +644,7 @@ def main():
   </section>
 
   <footer>
-    数据来自 <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a> · 由 GitHub Actions 每日自动更新 · 欢迎 PR 推荐新书
+    <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a> · Star 数由 GitHub Actions 每日自动更新 · <a href="CONTRIBUTING.md" target="_blank" rel="noopener">欢迎 PR 推荐新书</a>
   </footer>
 </div>
 {JS}

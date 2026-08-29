@@ -19,82 +19,167 @@
 ]}
 </script>
 <style>
-:root { --bg:#0b0f1a; --card:#141a2b; --line:#232b40; --text:#e6e9f2; --muted:#8b93a7; --accent:#6c8cff; }
+:root { --bg:#070b15; --card:rgba(255,255,255,.035); --card-solid:#0e1526;
+  --line:rgba(255,255,255,.08); --text:#e8ecf6; --muted:#8a93a8;
+  --accent:#6c8cff; --accent2:#8b5cf6; --gold:#ffb454; --radius:16px; }
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  background:radial-gradient(1200px 600px at 80% -10%, #1b2a4a 0%, var(--bg) 55%); color:var(--text); line-height:1.6; }
-.wrap { max-width:1080px; margin:0 auto; padding:48px 20px 80px; }
-header { text-align:center; padding:24px 0 8px; }
-header h1 { font-size:2rem; letter-spacing:.5px; }
-header p { color:var(--muted); margin-top:8px; font-size:.95rem; }
-.stats { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:22px 0 6px; }
-.stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 18px; font-size:.9rem; }
-.stat b { color:var(--accent); font-size:1.15rem; margin-right:4px; }
-.actions { display:flex; gap:12px; justify-content:center; margin:22px 0 10px; flex-wrap:wrap; }
-.btn { display:inline-block; padding:9px 18px; border-radius:10px; text-decoration:none; font-size:.92rem; border:1px solid var(--line); color:var(--text); background:var(--card); transition:.15s; }
-.btn:hover { border-color:var(--accent); transform:translateY(-1px); }
-.btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
-.controls { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; margin:26px 0 6px; }
-.search { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:10px; padding:9px 14px; font-size:.9rem; width:280px; max-width:100%; outline:none; }
-.search:focus { border-color:var(--accent); }
-.filter-btn { background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:20px; padding:6px 15px; font-size:.83rem; cursor:pointer; transition:.15s; }
-.filter-btn:hover { border-color:var(--accent); }
-.filter-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-.count { color:var(--muted); font-size:.82rem; text-align:center; margin:6px 0 0; }
-section { margin-top:44px; }
-section h2 { font-size:1.3rem; margin-bottom:16px; padding-left:12px; border-left:4px solid var(--accent); }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; }
-.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-decoration:none; color:var(--text); transition:.15s; }
-.card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  color:var(--text); line-height:1.6; min-height:100vh;
+  background:
+    radial-gradient(1100px 520px at 85% -8%, rgba(108,140,255,.16), transparent 60%),
+    radial-gradient(900px 460px at -5% 12%, rgba(139,92,246,.13), transparent 55%),
+    radial-gradient(1200px 700px at 50% 115%, rgba(64,196,255,.07), transparent 60%),
+    var(--bg);
+  background-attachment:fixed; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%);
+          mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%); }
+.wrap { max-width:1120px; margin:0 auto; padding:20px 20px 80px; }
+
+/* ── Hero ── */
+.hero { text-align:center; padding:56px 0 10px; }
+.hero .kicker { display:inline-flex; align-items:center; gap:6px; font-size:.76rem; letter-spacing:.14em;
+  color:var(--accent); border:1px solid rgba(108,140,255,.35); background:rgba(108,140,255,.08);
+  padding:5px 14px; border-radius:999px; margin-bottom:18px; font-weight:600; }
+.hero h1 { font-size:clamp(1.9rem, 4.5vw, 2.8rem); font-weight:800; letter-spacing:.5px; line-height:1.2;
+  background:linear-gradient(115deg, #fff 30%, var(--accent) 65%, var(--accent2));
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p { color:var(--muted); margin-top:14px; font-size:1rem; max-width:660px; margin-left:auto; margin-right:auto; }
+.stats { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:32px 0 6px; }
+.stat { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px 26px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 30px rgba(0,0,0,.25); min-width:130px; }
+.stat .ico { font-size:1.25rem; }
+.stat b { display:block; font-size:1.55rem; color:#fff; margin-top:2px; letter-spacing:.5px; }
+.stat span { color:var(--muted); font-size:.78rem; }
+.actions { display:flex; gap:12px; justify-content:center; margin:26px 0 6px; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:6px; padding:11px 22px; border-radius:12px;
+  text-decoration:none; font-size:.92rem; font-weight:600; border:1px solid var(--line);
+  color:var(--text); background:var(--card); backdrop-filter:blur(8px); transition:.18s; }
+.btn:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(108,140,255,.18); }
+.btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent2)); border-color:transparent; color:#fff;
+  box-shadow:0 6px 24px rgba(108,140,255,.35); }
+.btn.primary:hover { box-shadow:0 10px 30px rgba(108,140,255,.45); }
+
+/* ── 搜索 / 筛选 ── */
+.controls { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap;
+  margin:34px 0 12px; position:sticky; top:10px; z-index:40; }
+.search { background:var(--card-solid); border:1px solid var(--line); color:var(--text);
+  border-radius:12px; padding:11px 16px; font-size:.9rem; width:300px; max-width:100%;
+  outline:none; backdrop-filter:blur(10px); transition:border-color .15s, box-shadow .15s; }
+.search:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(108,140,255,.15); }
+.search::placeholder { color:#5d6678; }
+.filter-btn { background:var(--card-solid); border:1px solid var(--line); color:var(--muted);
+  border-radius:999px; padding:8px 18px; font-size:.85rem; cursor:pointer; transition:.15s;
+  backdrop-filter:blur(10px); font-weight:500; }
+.filter-btn:hover { border-color:var(--accent); color:var(--text); }
+.filter-btn.active { background:linear-gradient(135deg, var(--accent), var(--accent2));
+  border-color:transparent; color:#fff; box-shadow:0 4px 14px rgba(108,140,255,.3); }
+.count { color:var(--muted); font-size:.82rem; text-align:center; margin:4px 0 0; }
+
+/* ── 分类 ── */
+section { margin-top:56px; }
+section h2 { font-size:1.35rem; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+section h2::after { content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, var(--line), transparent); }
+
+/* ── 卡片 ── */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; }
+.card { position:relative; display:block; background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px 20px 18px 22px; text-decoration:none; color:var(--text);
+  overflow:hidden; transition:transform .2s, border-color .2s, box-shadow .2s, background .2s; }
+.card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--diff, var(--accent)); opacity:.85; }
+.card[data-diff="beginner"] { --diff:#4ade80; }
+.card[data-diff="intermediate"] { --diff:#facc15; }
+.card[data-diff="advanced"] { --diff:#f87171; }
+.card:hover { transform:translateY(-4px); border-color:rgba(108,140,255,.5);
+  box-shadow:0 14px 36px rgba(0,0,0,.45), 0 0 0 1px rgba(108,140,255,.12);
+  background:rgba(255,255,255,.055); }
 .card.hidden { display:none; }
 .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
-.repo { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; color:var(--accent); }
-.stars { font-size:.85rem; white-space:nowrap; }
-.card-name { font-weight:600; margin-top:8px; font-size:.98rem; }
-.card-desc { color:var(--muted); font-size:.86rem; margin-top:6px; }
-.badge { display:inline-block; font-size:.72rem; padding:1px 8px; border-radius:20px; margin-right:6px; vertical-align:1px; }
-.badge.beginner { background:#12351f; color:#4ade80; }
-.badge.intermediate { background:#3a2c10; color:#facc15; }
-.badge.advanced { background:#3a1414; color:#f87171; }
-table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; font-size:.9rem; }
-th, td { padding:10px 14px; text-align:left; border-bottom:1px solid var(--line); }
-th { background:#10162a; color:var(--muted); font-weight:600; }
-tr:last-child td { border-bottom:none; }
-td a { color:var(--accent); text-decoration:none; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; }
-td.rank { color:var(--muted); width:40px; }
-td.stars { white-space:nowrap; text-align:right; }
-.roadmap { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; font-size:.92rem; }
-.roadmap li { margin:8px 0; list-style:none; }
+.repo { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem; color:var(--accent);
+  display:inline-flex; align-items:center; gap:6px; word-break:break-all; }
+.repo svg { width:14px; height:14px; flex:none; opacity:.85; }
+.stars { font-size:.86rem; white-space:nowrap; color:var(--gold); font-weight:700; }
+.card-name { font-weight:700; margin-top:10px; font-size:1rem; color:#fff; line-height:1.4; }
+.card-desc { color:var(--muted); font-size:.85rem; margin-top:7px; line-height:1.55; }
+
+/* ── 徽章 ── */
+.badge { display:inline-flex; align-items:center; font-size:.7rem; padding:2px 9px; border-radius:999px;
+  margin-right:6px; font-weight:600; letter-spacing:.02em; }
+.badge.beginner { background:rgba(74,222,128,.13); color:#4ade80; }
+.badge.intermediate { background:rgba(250,204,21,.13); color:#facc15; }
+.badge.advanced { background:rgba(248,113,113,.13); color:#f87171; }
+
+/* ── 推荐阅读路线 ── */
+.roadmap { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:24px 28px; font-size:.93rem; backdrop-filter:blur(10px); }
+.roadmap ul { list-style:none; }
+.roadmap li { margin:10px 0; display:flex; gap:10px; align-items:flex-start; }
+.roadmap li::before { content:"\2192"; color:var(--accent); font-weight:700; flex:none; }
 .roadmap b { color:var(--accent); }
-footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:56px; }
+
+/* ── Footer ── */
+footer { text-align:center; color:var(--muted); font-size:.82rem; margin-top:64px;
+  padding-top:24px; border-top:1px solid var(--line); }
 footer a { color:var(--accent); text-decoration:none; }
-@media (max-width:640px) { .grid { grid-template-columns:1fr; } header h1 { font-size:1.5rem; } .search { width:100%; } }
+footer a:hover { text-decoration:underline; }
+
+/* ── 滚动动画 ── */
+.fade { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+.fade.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .fade { opacity:1; transform:none; transition:none; }
+}
+
+/* ── 响应式 ── */
+@media (max-width:720px) {
+  .grid { grid-template-columns:1fr; }
+  .hero { padding-top:40px; }
+  .search { width:100%; }
+  .controls { position:static; }
+  .stat { padding:12px 18px; min-width:104px; }
+}
+
 /* ── 黑板报 ── */
 .bb-intro { color:var(--muted); font-size:.9rem; margin-bottom:16px; }
 .bb-intro a { color:var(--accent); text-decoration:none; }
 .bb-intro a:hover { text-decoration:underline; }
-.bb-day { background:var(--card); border:1px solid var(--line); border-radius:14px; margin-bottom:14px; overflow:hidden; }
-.bb-day summary { cursor:pointer; padding:14px 18px; font-weight:600; font-size:1rem; list-style:none; user-select:none; display:flex; justify-content:space-between; align-items:center; }
+.bb-day { background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  margin-bottom:14px; overflow:hidden; backdrop-filter:blur(10px); transition:border-color .15s; }
+.bb-day summary { cursor:pointer; padding:15px 20px; font-weight:600; font-size:1rem; list-style:none;
+  user-select:none; display:flex; justify-content:space-between; align-items:center; transition:background .15s; }
 .bb-day summary::-webkit-details-marker { display:none; }
-.bb-day summary::after { content:'▸'; color:var(--muted); transition:.15s; }
-.bb-day[open] summary::after { transform:rotate(90deg); }
-.bb-day summary:hover { background:#0f1526; }
-.bb-day[open] summary { border-bottom:1px solid var(--line); background:#0f1526; }
-.bb-day .bb-tag { font-size:.72rem; color:var(--muted); font-weight:400; border:1px solid var(--line); border-radius:20px; padding:1px 10px; }
-.bb-share { font-size:.72rem; color:var(--accent); border:1px solid var(--line); border-radius:20px; padding:1px 10px; margin-left:6px; text-decoration:none; }
-.bb-share:hover { border-color:var(--accent); color:var(--accent); }
-.bb-body { padding:6px 22px 18px; font-size:.92rem; }
+.bb-day summary::after { content:"\25BE"; color:var(--muted); transition:transform .2s; font-size:.9em; }
+.bb-day[open] summary::after { transform:rotate(180deg); }
+.bb-day summary:hover { background:rgba(255,255,255,.04); }
+.bb-day[open] summary { border-bottom:1px solid var(--line); background:rgba(255,255,255,.03); }
+.bb-day .bb-tag { font-size:.7rem; color:var(--muted); font-weight:400; border:1px solid var(--line);
+  border-radius:999px; padding:2px 11px; }
+.bb-share { font-size:.7rem; color:var(--accent); border:1px solid var(--line); border-radius:999px;
+  padding:2px 11px; margin-left:6px; text-decoration:none; transition:.15s; }
+.bb-share:hover { border-color:var(--accent); color:var(--accent); background:rgba(108,140,255,.08); }
+.bb-body { padding:8px 24px 20px; font-size:.92rem; }
 .bb-body h3, .bb-body h4 { margin:14px 0 6px; color:var(--accent); font-size:1rem; }
 .bb-body h3 { font-size:1.05rem; }
 .bb-body ol { padding-left:22px; margin:6px 0; }
 .bb-body li { margin:5px 0; }
 .bb-body a { color:var(--accent); text-decoration:none; }
 .bb-body a:hover { text-decoration:underline; }
-.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px; margin:8px 0; font-size:.85rem; }
+.bb-body blockquote { border-left:3px solid var(--line); color:var(--muted); padding-left:12px;
+  margin:8px 0; font-size:.85rem; }
 .bb-body p { margin:8px 0; }
 .bb-body hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
-.bb-body code { background:#0f1526; padding:1px 6px; border-radius:6px; font-size:.85em; }
-.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:28px; text-align:center; font-size:.9rem; }
+.bb-body code { background:rgba(255,255,255,.06); padding:1px 7px; border-radius:6px; font-size:.85em; }
+.bb-empty { color:var(--muted); background:var(--card); border:1px dashed var(--line);
+  border-radius:var(--radius); padding:32px; text-align:center; font-size:.9rem; }
 .bb-link { text-align:right; margin:2px 0 18px; }
 .bb-link a { color:var(--accent); text-decoration:none; font-size:.85rem; }
 .bb-link a:hover { text-decoration:underline; }
@@ -102,13 +187,14 @@ footer a { color:var(--accent); text-decoration:none; }
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="hero">
+    <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
     <h1>📚 AI Agent 热门书单</h1>
-    <p>GitHub 上最热的开源书籍、课程与配套代码仓库 · 按热门度排序 · Star 数每日自动更新</p>
+    <p>GitHub 上最热的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
     <div class="stats">
-<div class="stat">📚 收录 <b>47</b> 个仓库</div>
-<div class="stat">⭐ 合计 <b>2,098,100</b> stars</div>
-<div class="stat">🔄 数据 <b>2026-08-29</b> 自动更新</div>
+<div class="stat"><div class="ico">📚</div><b>47</b><span>收录仓库</span></div>
+<div class="stat"><div class="ico">⭐</div><b>2,098,100</b><span>合计 Stars</span></div>
+<div class="stat"><div class="ico">🔄</div><b>2026-08-29</b><span>最近更新</span></div>
     </div>
     <div class="actions">
       <a class="btn primary" href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">⭐ Star 仓库</a>
@@ -125,7 +211,7 @@ footer a { color:var(--accent); text-decoration:none; }
 <p class="count" id="count"></p>
   </header>
 
-  <section id="blackboard">
+  <section id="blackboard" class="fade">
     <h2>📰 黑板报 · 最近一周</h2>
     <p class="bb-intro">工作日每日精选全球 AI / 科技要闻，以下为最近一周全部内容；往期可折叠，全部留存。</p>
   <details class="bb-day" open>
@@ -148,12 +234,12 @@ footer a { color:var(--accent); text-decoration:none; }
     <p class="bb-link"><a href="blackboard.html">📚 查看全部 1 期 →</a></p>
   </section>
 
-  <section id="chinese-books">
+  <section id="chinese-books" class="fade">
     <h2>📖 开源图书（中文）</h2>
     <div class="grid">
       <a class="card" href="https://github.com/bojieli/ai-agent-book" target="_blank" rel="noopener" data-diff="beginner" data-search="bojieli/ai-agent-book 《深入理解 ai agent：设计原理与工程实践》 （李博杰 著）开源主仓库：全书正文、编译版 pdf 与按章配套代码。目前最热的中文 agent 书籍">
         <div class="card-top">
-          <span class="repo">bojieli/ai-agent-book</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>bojieli/ai-agent-book</span>
           <span class="stars">⭐ 43.0k</span>
         </div>
         <div class="card-name">《深入理解 AI Agent：设计原理与工程实践》</div>
@@ -161,7 +247,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/alchaincyf/hermes-agent-orange-book" target="_blank" rel="noopener" data-diff="beginner" data-search="alchaincyf/hermes-agent-orange-book hermes agent 从入门到精通 · 橙皮书系列 ：nous research 开源 ai agent 框架实战指南">
         <div class="card-top">
-          <span class="repo">alchaincyf/hermes-agent-orange-book</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>alchaincyf/hermes-agent-orange-book</span>
           <span class="stars">⭐ 4.9k</span>
         </div>
         <div class="card-name">Hermes Agent 从入门到精通 · 橙皮书系列</div>
@@ -169,7 +255,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/lintsinghua/claude-code-book" target="_blank" rel="noopener" data-diff="intermediate" data-search="lintsinghua/claude-code-book 《御舆：解码 agent harness》 ：42 万字拆解 ai agent 的 harness 骨架，15 章从对话循环到构建你自己的 agent harness">
         <div class="card-top">
-          <span class="repo">lintsinghua/claude-code-book</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>lintsinghua/claude-code-book</span>
           <span class="stars">⭐ 4.2k</span>
         </div>
         <div class="card-name">《御舆：解码 Agent Harness》</div>
@@ -177,12 +263,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="english-books">
+  <section id="english-books" class="fade">
     <h2>🌍 开源图书 / 课程（英文）</h2>
     <div class="grid">
       <a class="card" href="https://github.com/huggingface/agents-course" target="_blank" rel="noopener" data-diff="beginner" data-search="huggingface/agents-course hugging face agents course ：最流行的 agent 入门课程（教材免费开源）">
         <div class="card-top">
-          <span class="repo">huggingface/agents-course</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>huggingface/agents-course</span>
           <span class="stars">⭐ 31.7k</span>
         </div>
         <div class="card-name">Hugging Face Agents Course</div>
@@ -190,7 +276,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/ed-donner/agents" target="_blank" rel="noopener" data-diff="intermediate" data-search="ed-donner/agents complete agentic ai engineering ：ed donner 完整 agentic ai 工程课程配套仓库">
         <div class="card-top">
-          <span class="repo">ed-donner/agents</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>ed-donner/agents</span>
           <span class="stars">⭐ 6.1k</span>
         </div>
         <div class="card-name">Complete Agentic AI Engineering</div>
@@ -198,7 +284,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/decodingai-magazine/second-brain-ai-assistant-course" target="_blank" rel="noopener" data-diff="beginner" data-search="decodingai-magazine/second-brain-ai-assistant-course second brain ai 助手课程 ：用 llm + agents 构建自己的第二大脑 ai 助手">
         <div class="card-top">
-          <span class="repo">decodingai-magazine/second-brain-ai-assistant-course</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>decodingai-magazine/second-brain-ai-assistant-course</span>
           <span class="stars">⭐ 3.1k</span>
         </div>
         <div class="card-name">Second Brain AI 助手课程</div>
@@ -206,7 +292,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/wquguru/harness-books" target="_blank" rel="noopener" data-diff="intermediate" data-search="wquguru/harness-books harness engineering 两卷本 ：claude code 与 codex 背后的设计哲学（约束、查询循环等）">
         <div class="card-top">
-          <span class="repo">wquguru/harness-books</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>wquguru/harness-books</span>
           <span class="stars">⭐ 2.9k</span>
         </div>
         <div class="card-name">Harness Engineering 两卷本</div>
@@ -214,7 +300,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/emarco177/langchain-course" target="_blank" rel="noopener" data-diff="beginner" data-search="emarco177/langchain-course langchain 课程 ：项目驱动的 ai agent 开发实战（langchain 讲师出品）">
         <div class="card-top">
-          <span class="repo">emarco177/langchain-course</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>emarco177/langchain-course</span>
           <span class="stars">⭐ 1.6k</span>
         </div>
         <div class="card-name">LangChain 课程</div>
@@ -222,7 +308,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/neural-maze/realtime-phone-agents-course" target="_blank" rel="noopener" data-diff="intermediate" data-search="neural-maze/realtime-phone-agents-course 实时语音 agent 课程 ：用 fastrtc 构建低延迟实时 ai 语音 agent">
         <div class="card-top">
-          <span class="repo">neural-maze/realtime-phone-agents-course</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>neural-maze/realtime-phone-agents-course</span>
           <span class="stars">⭐ 1.1k</span>
         </div>
         <div class="card-name">实时语音 Agent 课程</div>
@@ -230,12 +316,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="commercial-code">
+  <section id="commercial-code" class="fade">
     <h2>📦 商业图书配套代码</h2>
     <div class="grid">
       <a class="card" href="https://github.com/benman1/generative_ai_with_langchain" target="_blank" rel="noopener" data-diff="beginner" data-search="benman1/generative_ai_with_langchain benman1/generative_ai_with_langchain *generative ai with langchain*（o&#x27;reilly）：用 python、langchain、langgraph 构建生产级 llm 应用与高级 agent">
         <div class="card-top">
-          <span class="repo">benman1/generative_ai_with_langchain</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>benman1/generative_ai_with_langchain</span>
           <span class="stars">⭐ 1.4k</span>
         </div>
         <div class="card-name">benman1/generative_ai_with_langchain</div>
@@ -243,12 +329,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="papers-resources">
+  <section id="papers-resources" class="fade">
     <h2>📑 论文清单 / 资源汇总</h2>
     <div class="grid">
       <a class="card" href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener" data-diff="intermediate" data-search="awesome-dsh-plugin/awesome-dsh-plugin deepseek harness 插件精选清单 ：dsh 生态插件大全（类 awesome 列表）">
         <div class="card-top">
-          <span class="repo">awesome-dsh-plugin/awesome-dsh-plugin</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>awesome-dsh-plugin/awesome-dsh-plugin</span>
           <span class="stars">⭐ 13.4k</span>
         </div>
         <div class="card-name">DeepSeek Harness 插件精选清单</div>
@@ -256,7 +342,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/WangRongsheng/awesome-LLM-resources" target="_blank" rel="noopener" data-diff="beginner" data-search="wangrongsheng/awesome-llm-resources wangrongsheng/awesome-llm-resources llm 资料大全：多模态、agent、mcp、模型训练/推理等">
         <div class="card-top">
-          <span class="repo">WangRongsheng/awesome-LLM-resources</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>WangRongsheng/awesome-LLM-resources</span>
           <span class="stars">⭐ 8.9k</span>
         </div>
         <div class="card-name">WangRongsheng/awesome-LLM-resources</div>
@@ -264,7 +350,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/WooooDyy/LLM-Agent-Paper-List" target="_blank" rel="noopener" data-diff="advanced" data-search="woooodyy/llm-agent-paper-list woooodyy/llm-agent-paper-list scis 封面论文 *the rise and potential of llm-based agents* 配套论文清单">
         <div class="card-top">
-          <span class="repo">WooooDyy/LLM-Agent-Paper-List</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>WooooDyy/LLM-Agent-Paper-List</span>
           <span class="stars">⭐ 8.2k</span>
         </div>
         <div class="card-name">WooooDyy/LLM-Agent-Paper-List</div>
@@ -272,7 +358,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/WeThinkIn/AIGC-Interview-Book" target="_blank" rel="noopener" data-diff="intermediate" data-search="wethinkin/aigc-interview-book wethinkin/aigc-interview-book aigc/llm/ai agent 算法工程师面试资源平台（三年面试五年模拟）">
         <div class="card-top">
-          <span class="repo">WeThinkIn/AIGC-Interview-Book</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>WeThinkIn/AIGC-Interview-Book</span>
           <span class="stars">⭐ 4.5k</span>
         </div>
         <div class="card-name">WeThinkIn/AIGC-Interview-Book</div>
@@ -280,7 +366,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/luo-junyu/Awesome-Agent-Papers" target="_blank" rel="noopener" data-diff="advanced" data-search="luo-junyu/awesome-agent-papers luo-junyu/awesome-agent-papers llm agent 综述：方法论、应用与挑战（持续更新）">
         <div class="card-top">
-          <span class="repo">luo-junyu/Awesome-Agent-Papers</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>luo-junyu/Awesome-Agent-Papers</span>
           <span class="stars">⭐ 2.8k</span>
         </div>
         <div class="card-name">luo-junyu/Awesome-Agent-Papers</div>
@@ -288,7 +374,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/Picrew/awesome-agent-harness" target="_blank" rel="noopener" data-diff="intermediate" data-search="picrew/awesome-agent-harness awesome-agent-harness ：agent harness 工程资源精选">
         <div class="card-top">
-          <span class="repo">Picrew/awesome-agent-harness</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Picrew/awesome-agent-harness</span>
           <span class="stars">⭐ 1.7k</span>
         </div>
         <div class="card-name">awesome-agent-harness</div>
@@ -296,7 +382,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/weitianxin/Awesome-Agentic-Reasoning" target="_blank" rel="noopener" data-diff="advanced" data-search="weitianxin/awesome-agentic-reasoning weitianxin/awesome-agentic-reasoning 基于 *agentic reasoning for llms* 综述整理的资源清单">
         <div class="card-top">
-          <span class="repo">weitianxin/Awesome-Agentic-Reasoning</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>weitianxin/Awesome-Agentic-Reasoning</span>
           <span class="stars">⭐ 1.4k</span>
         </div>
         <div class="card-name">weitianxin/Awesome-Agentic-Reasoning</div>
@@ -304,12 +390,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="agent-rules">
+  <section id="agent-rules" class="fade">
     <h2>🛠️ Agent 规则书</h2>
     <div class="grid">
       <a class="card" href="https://github.com/ciembor/agent-rules-books" target="_blank" rel="noopener" data-diff="intermediate" data-search="ciembor/agent-rules-books agents.md rules / skills for ai coding agents ：codex、cursor &amp; claude code 的规则与技能书，灵感来自 clean code">
         <div class="card-top">
-          <span class="repo">ciembor/agent-rules-books</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>ciembor/agent-rules-books</span>
           <span class="stars">⭐ 2.6k</span>
         </div>
         <div class="card-name">AGENTS.md rules / skills for AI coding agents</div>
@@ -317,7 +403,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/deusyu/translate-book" target="_blank" rel="noopener" data-diff="beginner" data-search="deusyu/translate-book translate-book ：面向 codex / claude code / openclaw 的图书翻译 agent 技能">
         <div class="card-top">
-          <span class="repo">deusyu/translate-book</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>deusyu/translate-book</span>
           <span class="stars">⭐ 1.2k</span>
         </div>
         <div class="card-name">translate-book</div>
@@ -325,12 +411,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="ai-writing">
+  <section id="ai-writing" class="fade">
     <h2>✍️ AI Agent 写书实验</h2>
     <div class="grid">
       <a class="card" href="https://github.com/mind-protocol/terminal-velocity" target="_blank" rel="noopener" data-diff="beginner" data-search="mind-protocol/terminal-velocity mind-protocol/terminal-velocity 由 10 个 ai agent 组成的团队自主创作的长篇小说（可作 agent 协作案例研究）">
         <div class="card-top">
-          <span class="repo">mind-protocol/terminal-velocity</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>mind-protocol/terminal-velocity</span>
           <span class="stars">⭐ 1.1k</span>
         </div>
         <div class="card-name">mind-protocol/terminal-velocity</div>
@@ -338,12 +424,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="harness-ecosystem">
+  <section id="harness-ecosystem" class="fade">
     <h2>🧩 Agent Harness 生态</h2>
     <div class="grid">
       <a class="card" href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener" data-diff="intermediate" data-search="affaan-m/ecc ecc: agent harness 性能优化系统 ：skills / instincts / memory / security，服务 claude code、codex、opencode 等">
         <div class="card-top">
-          <span class="repo">affaan-m/ECC</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>affaan-m/ECC</span>
           <span class="stars">⭐ 244.0k</span>
         </div>
         <div class="card-name">ECC: Agent Harness 性能优化系统</div>
@@ -351,7 +437,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener" data-diff="intermediate" data-search="deepseek-ai/deepseek-harness deepseek harness ：「万物皆插件」的官方开源 agent harness，上线两周即破 20 万 star">
         <div class="card-top">
-          <span class="repo">deepseek-ai/deepseek-harness</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>deepseek-ai/deepseek-harness</span>
           <span class="stars">⭐ 202.3k</span>
         </div>
         <div class="card-name">DeepSeek Harness</div>
@@ -359,7 +445,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener" data-diff="intermediate" data-search="bytedance/deer-flow deer flow（字节跳动） ：开源长周期 superagent harness，研究 / 编码 / 创作一体，沙箱 + 记忆 + 工具 + 子 agent">
         <div class="card-top">
-          <span class="repo">bytedance/deer-flow</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>bytedance/deer-flow</span>
           <span class="stars">⭐ 81.1k</span>
         </div>
         <div class="card-name">Deer Flow（字节跳动）</div>
@@ -367,7 +453,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/shareAI-lab/learn-claude-code" target="_blank" rel="noopener" data-diff="beginner" data-search="shareai-lab/learn-claude-code learn-claude-code ：从 0 到 1 手写一个 nano claude code 式 agent harness（bash is all you need）">
         <div class="card-top">
-          <span class="repo">shareAI-lab/learn-claude-code</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>shareAI-lab/learn-claude-code</span>
           <span class="stars">⭐ 75.6k</span>
         </div>
         <div class="card-name">learn-claude-code</div>
@@ -375,7 +461,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/code-yeongyu/oh-my-openagent" target="_blank" rel="noopener" data-diff="intermediate" data-search="code-yeongyu/oh-my-openagent omo/lazycodex ：面向复杂代码库的编码 agent harness，专为 codex / opencode 打造">
         <div class="card-top">
-          <span class="repo">code-yeongyu/oh-my-openagent</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>code-yeongyu/oh-my-openagent</span>
           <span class="stars">⭐ 68.5k</span>
         </div>
         <div class="card-name">omo/lazycodex</div>
@@ -383,7 +469,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/zhayujie/CowAgent" target="_blank" rel="noopener" data-diff="beginner" data-search="zhayujie/cowagent cowagent ：开源超级 ai 助手 + agent harness，自主规划任务、调用工具与技能、记忆自进化（原 chatgpt-on-wechat）">
         <div class="card-top">
-          <span class="repo">zhayujie/CowAgent</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>zhayujie/CowAgent</span>
           <span class="stars">⭐ 46.7k</span>
         </div>
         <div class="card-name">CowAgent</div>
@@ -391,7 +477,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/wshobson/agents" target="_blank" rel="noopener" data-diff="intermediate" data-search="wshobson/agents multi-harness 插件市场 ：claude code / codex / cursor / opencode 通用插件市场">
         <div class="card-top">
-          <span class="repo">wshobson/agents</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>wshobson/agents</span>
           <span class="stars">⭐ 39.2k</span>
         </div>
         <div class="card-name">Multi-harness 插件市场</div>
@@ -399,7 +485,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/langchain-ai/deepagents" target="_blank" rel="noopener" data-diff="intermediate" data-search="langchain-ai/deepagents deep agents ：langchain 官方「全家桶」agent harness（batteries-included）">
         <div class="card-top">
-          <span class="repo">langchain-ai/deepagents</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>langchain-ai/deepagents</span>
           <span class="stars">⭐ 28.7k</span>
         </div>
         <div class="card-name">Deep Agents</div>
@@ -407,7 +493,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/anywhere-labs/dsh-desktop" target="_blank" rel="noopener" data-diff="beginner" data-search="anywhere-labs/dsh-desktop dsh desktop ：deepseek harness 插件生态的现代化桌面端，「桌面本身也是插件」">
         <div class="card-top">
-          <span class="repo">anywhere-labs/dsh-desktop</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>anywhere-labs/dsh-desktop</span>
           <span class="stars">⭐ 21.6k</span>
         </div>
         <div class="card-name">DSH Desktop</div>
@@ -415,7 +501,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/visa/visa-vulnerability-agentic-harness" target="_blank" rel="noopener" data-diff="intermediate" data-search="visa/visa-vulnerability-agentic-harness visa vulnerability agentic harness ：visa 开源漏洞挖掘 agent harness">
         <div class="card-top">
-          <span class="repo">visa/visa-vulnerability-agentic-harness</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>visa/visa-vulnerability-agentic-harness</span>
           <span class="stars">⭐ 2.6k</span>
         </div>
         <div class="card-name">Visa Vulnerability Agentic Harness</div>
@@ -423,12 +509,12 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
     </div>
   </section>
-  <section id="agent-frameworks">
+  <section id="agent-frameworks" class="fade">
     <h2>🤖 Agent 框架 / 工具库</h2>
     <div class="grid">
       <a class="card" href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener" data-diff="beginner" data-search="n8n-io/n8n n8n ：开源工作流自动化平台（fair-code），原生 ai agent 能力，可视化编排 agent 流程">
         <div class="card-top">
-          <span class="repo">n8n-io/n8n</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>n8n-io/n8n</span>
           <span class="stars">⭐ 202.8k</span>
         </div>
         <div class="card-name">n8n</div>
@@ -436,7 +522,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener" data-diff="intermediate" data-search="significant-gravitas/autogpt autogpt ：自主 ai agent 先驱项目，人人都能用的通用 agent 平台">
         <div class="card-top">
-          <span class="repo">Significant-Gravitas/AutoGPT</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Significant-Gravitas/AutoGPT</span>
           <span class="stars">⭐ 187.0k</span>
         </div>
         <div class="card-name">AutoGPT</div>
@@ -444,7 +530,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/langgenius/dify" target="_blank" rel="noopener" data-diff="beginner" data-search="langgenius/dify dify ：开源 llm 应用开发平台，可视化构建 agentic 工作流与 rag 流水线">
         <div class="card-top">
-          <span class="repo">langgenius/dify</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>langgenius/dify</span>
           <span class="stars">⭐ 153.8k</span>
         </div>
         <div class="card-name">Dify</div>
@@ -452,7 +538,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener" data-diff="intermediate" data-search="langchain-ai/langchain langchain ：agent 工程平台，最流行的 llm 应用开发框架（python/js）">
         <div class="card-top">
-          <span class="repo">langchain-ai/langchain</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>langchain-ai/langchain</span>
           <span class="stars">⭐ 145.2k</span>
         </div>
         <div class="card-name">LangChain</div>
@@ -460,7 +546,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/microsoft/autogen" target="_blank" rel="noopener" data-diff="intermediate" data-search="microsoft/autogen autogen （微软）：面向 agentic ai 的编程框架，多 agent 对话与编排">
         <div class="card-top">
-          <span class="repo">microsoft/autogen</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>microsoft/autogen</span>
           <span class="stars">⭐ 60.7k</span>
         </div>
         <div class="card-name">AutoGen</div>
@@ -468,7 +554,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener" data-diff="beginner" data-search="crewaiinc/crewai crewai ：角色扮演式多 agent 协作框架，「角色 + 任务 + 工具」开箱即用">
         <div class="card-top">
-          <span class="repo">crewAIInc/crewAI</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>crewAIInc/crewAI</span>
           <span class="stars">⭐ 57.8k</span>
         </div>
         <div class="card-name">CrewAI</div>
@@ -476,7 +562,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/FlowiseAI/Flowise" target="_blank" rel="noopener" data-diff="beginner" data-search="flowiseai/flowise flowise ：可视化拖拽构建 ai agent 与工作流（开源）">
         <div class="card-top">
-          <span class="repo">FlowiseAI/Flowise</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>FlowiseAI/Flowise</span>
           <span class="stars">⭐ 55.4k</span>
         </div>
         <div class="card-name">Flowise</div>
@@ -484,7 +570,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener" data-diff="intermediate" data-search="run-llama/llama_index llamaindex ：领先的文档 agent 与 rag 平台，连接数据与 llm">
         <div class="card-top">
-          <span class="repo">run-llama/llama_index</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>run-llama/llama_index</span>
           <span class="stars">⭐ 51.9k</span>
         </div>
         <div class="card-name">LlamaIndex</div>
@@ -492,7 +578,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener" data-diff="advanced" data-search="langchain-ai/langgraph langgraph ：用状态图构建弹性 agent 的低层编排框架（langchain 出品）">
         <div class="card-top">
-          <span class="repo">langchain-ai/langgraph</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>langchain-ai/langgraph</span>
           <span class="stars">⭐ 40.6k</span>
         </div>
         <div class="card-name">LangGraph</div>
@@ -500,7 +586,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/stanford-oval/storm" target="_blank" rel="noopener" data-diff="intermediate" data-search="stanford-oval/storm storm （斯坦福）：llm 知识策展系统，多智能体协同撰写研究报告">
         <div class="card-top">
-          <span class="repo">stanford-oval/storm</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>stanford-oval/storm</span>
           <span class="stars">⭐ 31.2k</span>
         </div>
         <div class="card-name">STORM</div>
@@ -508,7 +594,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener" data-diff="beginner" data-search="openai/openai-agents-python openai agents sdk ：轻量强大的多 agent 工作流框架（官方）">
         <div class="card-top">
-          <span class="repo">openai/openai-agents-python</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>openai/openai-agents-python</span>
           <span class="stars">⭐ 29.1k</span>
         </div>
         <div class="card-name">OpenAI Agents SDK</div>
@@ -516,7 +602,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/huggingface/smolagents" target="_blank" rel="noopener" data-diff="beginner" data-search="huggingface/smolagents smolagents （hugging face）：极简 agent 库——代码即行动（code-first）">
         <div class="card-top">
-          <span class="repo">huggingface/smolagents</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>huggingface/smolagents</span>
           <span class="stars">⭐ 29.0k</span>
         </div>
         <div class="card-name">smolagents</div>
@@ -524,7 +610,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/deepset-ai/haystack" target="_blank" rel="noopener" data-diff="intermediate" data-search="deepset-ai/haystack haystack （deepset）：开源 ai 编排框架，rag 与 agent 生产级管道">
         <div class="card-top">
-          <span class="repo">deepset-ai/haystack</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>deepset-ai/haystack</span>
           <span class="stars">⭐ 26.4k</span>
         </div>
         <div class="card-name">Haystack</div>
@@ -532,7 +618,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/google/adk-python" target="_blank" rel="noopener" data-diff="intermediate" data-search="google/adk-python agent development kit （google）：code-first 的 agent 构建工具包">
         <div class="card-top">
-          <span class="repo">google/adk-python</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>google/adk-python</span>
           <span class="stars">⭐ 21.3k</span>
         </div>
         <div class="card-name">Agent Development Kit</div>
@@ -540,7 +626,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/pydantic/pydantic-ai" target="_blank" rel="noopener" data-diff="beginner" data-search="pydantic/pydantic-ai pydantic ai ：以类型安全的方式构建 agent（pydantic 官方）">
         <div class="card-top">
-          <span class="repo">pydantic/pydantic-ai</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>pydantic/pydantic-ai</span>
           <span class="stars">⭐ 19.6k</span>
         </div>
         <div class="card-name">Pydantic AI</div>
@@ -548,7 +634,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/QwenLM/Qwen-Agent" target="_blank" rel="noopener" data-diff="beginner" data-search="qwenlm/qwen-agent qwen-agent （通义千问）：qwen 大模型上的 agent 框架与应用">
         <div class="card-top">
-          <span class="repo">QwenLM/Qwen-Agent</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>QwenLM/Qwen-Agent</span>
           <span class="stars">⭐ 17.0k</span>
         </div>
         <div class="card-name">Qwen-Agent</div>
@@ -556,7 +642,7 @@ footer a { color:var(--accent); text-decoration:none; }
       </a>
       <a class="card" href="https://github.com/microsoft/agent-framework" target="_blank" rel="noopener" data-diff="intermediate" data-search="microsoft/agent-framework agent framework （微软）：构建、编排与部署生产级 agent">
         <div class="card-top">
-          <span class="repo">microsoft/agent-framework</span>
+          <span class="repo"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>microsoft/agent-framework</span>
           <span class="stars">⭐ 13.2k</span>
         </div>
         <div class="card-name">Agent Framework</div>
@@ -565,7 +651,7 @@ footer a { color:var(--accent); text-decoration:none; }
     </div>
   </section>
 
-  <section id="roadmap">
+  <section id="roadmap" class="fade">
     <h2>🔍 推荐阅读路线</h2>
     <div class="roadmap">
       <ul>
@@ -578,12 +664,23 @@ footer a { color:var(--accent); text-decoration:none; }
   </section>
 
   <footer>
-    数据来自 <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a> · 由 GitHub Actions 每日自动更新 · 欢迎 PR 推荐新书
+    <a href="https://github.com/gotonote/awesome-agent-boom" target="_blank" rel="noopener">gotonote/awesome-agent-boom</a> · Star 数由 GitHub Actions 每日自动更新 · <a href="CONTRIBUTING.md" target="_blank" rel="noopener">欢迎 PR 推荐新书</a>
   </footer>
 </div>
 
 <script>
 (function () {
+  // 滚动淡入动画（渐进增强：不支持 IntersectionObserver 时直接显示）
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.04 });
+    document.querySelectorAll('.fade').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade').forEach(function (el) { el.classList.add('in'); });
+  }
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
   var search = document.getElementById('search');
   var btns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
