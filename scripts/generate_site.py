@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate docs/index.html (GitHub Pages site) from README.md.
 
-Parses the category tables and Top 10 leaderboard in README.md and renders a
+Parses the category tables in README.md and renders a
 responsive static page with client-side search & difficulty filtering.
 Intended to run right after update_stars.py in CI so the site always reflects
 the latest star counts. Pure stdlib, no deps.
@@ -34,7 +34,7 @@ SECTIONS = [
     ("ai-writing", "✍️ AI Agent 写书实验"),
     ("harness-ecosystem", "🧩 Agent Harness 生态"),
 ]
-ORDER = [s[0] for s in SECTIONS] + ["top-10", "roadmap"]
+ORDER = [s[0] for s in SECTIONS] + ["roadmap"]
 
 CSS = """
 :root { --bg:#0b0f1a; --card:#141a2b; --line:#232b40; --text:#e6e9f2; --muted:#8b93a7; --accent:#6c8cff; }
@@ -386,21 +386,6 @@ def main():
             f'    <div class="grid">\n{cards}\n    </div>\n  </section>'
         )
 
-    top10_rows = []
-    for line in lines[anchors["top-10"] : anchors["roadmap"]]:
-        m = re.match(
-            r"^\| (\d+) \| \[([^]]+)\]\(https://github\.com/([^)]+)\) \| ⭐ ([\d.]+k?) \| (.*) \|$",
-            line,
-        )
-        if m:
-            rank, _, repo, stars, one = m.groups()
-            top10_rows.append(
-                f'<tr><td class="rank">{rank}</td>'
-                f'<td><a href="https://github.com/{repo}">{repo}</a></td>'
-                f"<td>{md(one)}</td>"
-                f'<td class="stars">⭐ {stars}</td></tr>'
-            )
-
     m_date = re.search(r"数据抓取时间：(\d{4}-\d{2}-\d{2})", "\n".join(lines))
     fetched = m_date.group(1) if m_date else "-"
 
@@ -452,16 +437,6 @@ def main():
 {bb_section}
 
 {chr(10).join(sections_html)}
-
-  <section id="top-10">
-    <h2>🏆 Top 10 总榜</h2>
-    <table>
-      <thead><tr><th>#</th><th>仓库</th><th>一句话</th><th>Star</th></tr></thead>
-      <tbody>
-{chr(10).join(top10_rows)}
-      </tbody>
-    </table>
-  </section>
 
   <section id="roadmap">
     <h2>🔍 推荐阅读路线</h2>

@@ -27,7 +27,7 @@
 - LLM-Agent-Paper-List（8.2k⭐）—— SCIS 封面论文配套清单
 - Awesome-Agent-Papers —— Agent 综述方法论
 
-每本书的 Star 数由 GitHub Actions 每天自动更新，榜单实时刷新。完整书单（含 Top 10 总榜和阅读路线）：
+每本书的 Star 数由 GitHub Actions 每天自动更新，榜单实时刷新。完整书单（含七大主题分类和阅读路线）：
 
 📚 https://github.com/gotonote/awesome-agent-boom
 🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/awesome-agent-boom/
@@ -50,7 +50,7 @@ Spent some time digging through GitHub for the best open-source resources on **A
 - 🟡 **Intermediate**: *Decoding the Agent Harness* (420k words) · Harness Engineering (the design philosophy behind Claude Code & Codex) · Generative AI with LangChain (O'Reilly)
 - 🔴 **Advanced**: LLM-Agent-Paper-List (SCIS cover paper companion) · Awesome-Agent-Papers survey
 
-Star counts are refreshed **daily by GitHub Actions**, so the leaderboard is always up to date. Includes a Top 10 leaderboard and recommended reading paths:
+Star counts are refreshed **daily by GitHub Actions**, so the leaderboard is always up to date. Includes 7 curated categories and recommended reading paths:
 
 📚 https://github.com/gotonote/awesome-agent-boom
 🌐 Web version (mobile-friendly): https://gotonote.github.io/awesome-agent-boom/

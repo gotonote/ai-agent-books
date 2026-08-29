@@ -30,7 +30,6 @@
 - [🛠️ 五、Agent 规则书 / 编码 Agent 技能集](#agent-rules)
 - [✍️ 六、AI Agent 写书实验](#ai-writing)
 - [🧩 七、Agent Harness 生态](#harness-ecosystem)
-- [🏆 Top 10 总榜](#top-10)
 - [🔍 推荐阅读路线](#roadmap)
 
 ---
@@ -117,35 +116,9 @@
 
 ---
 
-## <a id="top-10"></a>🏆 Top 10 总榜
-
-| # | 仓库 | Star | 一句话 |
-| --- | --- | --- | --- |
-| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 43.0k | 深入理解 AI Agent（李博杰） |
-| 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.7k | Hugging Face Agent 课程 |
-| 3 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | LLM 资料大全 |
-| 4 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | LLM Agent 论文清单 |
-| 5 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | Hermes Agent 橙皮书 |
-| 6 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | Agent 面试题集 |
-| 7 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.2k | 解码 Agent Harness |
-| 8 | [wquguru/harness-books](https://github.com/wquguru/harness-books) | ⭐ 2.9k | Harness 工程两卷本 |
-| 9 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | LLM Agent 综述清单 |
-| 10 | [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books) | ⭐ 2.6k | Agent 规则书 |
-
----
-
 ## <a id="roadmap"></a>🔍 推荐阅读路线
 
 - **入门**：Hugging Face Agents Course → 《深入理解 AI Agent》→ Hermes Agent 橙皮书
 - **进阶（Harness 工程）**：《御舆：解码 Agent Harness》→ harness-books → Harness Engineering 橙皮书
 - **面试 / 求职**：AIGC-Interview-Book + Awesome-Agent-Papers
 - **动手实践**：Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
-
----
-
-## 📅 更新记录
-
-- **2026-08-28**：新增「🧩 Agent Harness 生态」专题（DeepSeek Harness、Deer Flow 等 9 个仓库）与 DSH 插件资源清单，收录仓库增至 36 个
-- **2026-08-28**：新增「黑板报」——工作日每日出刊 AI / 科技要闻精选（Hacker News/少数派/InfoQ/量子位/IT之家 热榜），主页展示最近一周，往期全部归档
-- **2026-08-23**：上线 GitHub Pages 在线书单（搜索 + 难度筛选）；新增英文版 README、难度分级；接入 GitHub Actions 每日自动更新 Star 数
-- **2026-08-22**：整理发布初版（26 个仓库）

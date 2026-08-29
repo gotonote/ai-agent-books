@@ -32,7 +32,6 @@
 - [5. Agent Rules / Coding-Agent Skill Sets](#agent-rules)
 - [6. AI-Agent Book-Writing Experiments](#ai-writing)
 - [7. Agent Harness Ecosystem](#harness-ecosystem)
-- [🏆 Top 10 Leaderboard](#top-10)
 - [🔍 Recommended Reading Paths](#roadmap)
 
 ---
@@ -119,34 +118,9 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 
 ---
 
-## <a id="top-10"></a>🏆 Top 10 Leaderboard
-
-| # | Repo | Stars | One-liner |
-| --- | --- | --- | --- |
-| 1 | [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book) | ⭐ 43.0k | Understanding AI Agents (Bojie Li) |
-| 2 | [huggingface/agents-course](https://github.com/huggingface/agents-course) | ⭐ 31.7k | Hugging Face Agents Course |
-| 3 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | ⭐ 8.9k | LLM resource hub |
-| 4 | [WooooDyy/LLM-Agent-Paper-List](https://github.com/WooooDyy/LLM-Agent-Paper-List) | ⭐ 8.2k | LLM agent paper list |
-| 5 | [alchaincyf/hermes-agent-orange-book](https://github.com/alchaincyf/hermes-agent-orange-book) | ⭐ 4.9k | Hermes Agent Orange Book |
-| 6 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | Agent interview questions |
-| 7 | [lintsinghua/claude-code-book](https://github.com/lintsinghua/claude-code-book) | ⭐ 4.2k | Decoding the Agent Harness |
-| 8 | [wquguru/harness-books](https://github.com/wquguru/harness-books) | ⭐ 2.9k | Harness Engineering, 2 vols |
-| 9 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | LLM agent survey list |
-| 10 | [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books) | ⭐ 2.6k | Agent rules books |
-
----
-
 ## <a id="roadmap"></a>🔍 Recommended Reading Paths
 
 - **Getting started**: Hugging Face Agents Course → *Understanding AI Agents* → Hermes Agent Orange Book
 - **Intermediate (Harness engineering)**: *Decoding the Agent Harness* → harness-books → Harness Engineering Orange Book
 - **Interview / job hunting**: AIGC-Interview-Book + Awesome-Agent-Papers
 - **Hands-on practice**: Generative AI with LangChain → Hands-On Intelligent Agents with OpenAI Gym
-
----
-
-## 📅 Changelog
-
-- **2026-08-28**: Added the "🧩 Agent Harness Ecosystem" section (DeepSeek Harness, Deer Flow & 7 more) and the DSH plugin list — now 36 repos.
-- **2026-08-23**: Launched GitHub Pages site (search + difficulty filter); added English README & difficulty levels; daily auto-update via GitHub Actions
-- **2026-08-22**: Initial release (26 repos)

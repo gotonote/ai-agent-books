@@ -37,7 +37,7 @@
 7. LLM-Agent-Paper-List（8.2k⭐）—— SCIS 封面论文配套清单，读论文从这份开始。
 8. Awesome-Agent-Papers（2.8k⭐）—— LLM Agent 综述：方法论、应用与挑战。
 
-完整书单（26 个仓库、Top 10 总榜、推荐阅读路线）：
+完整书单（七大主题分类、推荐阅读路线）：
 
 📚 https://github.com/gotonote/awesome-agent-boom
 🌐 在线书单（网页版，手机也能看）：https://gotonote.github.io/awesome-agent-boom/
