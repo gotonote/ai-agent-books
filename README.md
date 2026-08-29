@@ -8,7 +8,7 @@
 [![在线书单](https://img.shields.io/badge/🖥️-在线书单-6c8cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/)
 [![收录仓库](https://img.shields.io/badge/📚-47%20仓库-22c55e?style=for-the-badge)]()
 [![自动更新](https://img.shields.io/badge/🤖-每日自动更新-f59e0b?style=for-the-badge)]()
-[![黑板报](https://img.shields.io/badge/📰-黑板报-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
+[![黑板报](https://img.shields.io/badge/🔥-黑板报-ff6600?style=for-the-badge)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 [![PRs Welcome](https://img.shields.io/badge/🙏-欢迎%20PR-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 [🇬🇧 English Version](README.en.md)
@@ -21,7 +21,7 @@
 
 ## 📑 目录
 
-- 📰 黑板报：[![进入黑板报](https://img.shields.io/badge/📰-进入黑板报-64748b?style=for-the-badge&logo=rss&logoColor=white)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
+- 📰 黑板报：[![进入黑板报](https://img.shields.io/badge/🔥-进入黑板报-ff6600?style=for-the-badge)](https://gotonote.github.io/awesome-agent-boom/blackboard.html)
 - 📖 [一、开源图书（中文）](#chinese-books)
 - 🌍 [二、开源图书 / 课程（英文）](#english-books)
 - 📦 [三、商业图书配套代码仓库](#commercial-code)
