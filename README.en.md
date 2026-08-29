@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌍 Open the Agent World
+# 🌍 Agent World
 
 **🚀 AI Agent Learning Bible** · The hottest open-source books, courses & code repos on AI Agent / LLM Agent / Agentic Engineering — star counts auto-update daily.
 

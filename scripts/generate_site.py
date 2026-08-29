@@ -601,7 +601,7 @@ def main():
 <body>
 <div class="wrap">
   <header class="hero">
-    <div class="slogan">打开 Agent 世界</div>
+    <div class="slogan">Agent 世界</div>
     <div class="kicker">🔥 数据是活的 · GitHub Actions 每日自动更新</div>
     <h1>🚀 AI Agent 学习宝典</h1>
     <p>GitHub 上最热门的开源书籍、课程与配套代码仓库 · 八大主题 · 难度分级 · 搜索筛选</p>
