@@ -32,6 +32,7 @@ SECTIONS = [
     ("papers-resources", "📑 论文清单 / 资源汇总"),
     ("agent-rules", "🛠️ Agent 规则书"),
     ("ai-writing", "✍️ AI Agent 写书实验"),
+    ("harness-ecosystem", "🧩 Agent Harness 生态"),
 ]
 ORDER = [s[0] for s in SECTIONS] + ["top-10", "roadmap"]
 

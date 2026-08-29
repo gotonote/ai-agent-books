@@ -7,7 +7,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![Online Site](https://img.shields.io/badge/online%20site-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![Books](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
+[![Books](https://img.shields.io/badge/books-36-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
 [![Stars auto-update](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
@@ -17,7 +17,7 @@
 ## ✨ Why star this list
 
 - **Always fresh**: Star counts are refreshed daily by GitHub Actions — no stale data
-- **Curated, not dumped**: 26 repos across 6 categories, each tagged with a difficulty level
+- **Curated, not dumped**: 36 repos across 7 categories, each tagged with a difficulty level
 - **Read anywhere**: bilingual READMEs + responsive [web version](https://gotonote.github.io/awesome-agent-boom/) with search & filtering
 
 ---
@@ -31,6 +31,7 @@
 - [4. Paper Lists / Resource Hubs](#papers-resources)
 - [5. Agent Rules / Coding-Agent Skill Sets](#agent-rules)
 - [6. AI-Agent Book-Writing Experiments](#ai-writing)
+- [7. Agent Harness Ecosystem](#harness-ecosystem)
 - [🏆 Top 10 Leaderboard](#top-10)
 - [🔍 Recommended Reading Paths](#roadmap)
 
@@ -86,6 +87,7 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | 🟡 Intermediate · Interview-prep platform for AIGC/LLM/AI-agent algorithm engineers. |
 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | 🔴 Advanced · LLM agent survey: methodologies, applications & challenges (continuously updated). |
 | [weitianxin/Awesome-Agentic-Reasoning](https://github.com/weitianxin/Awesome-Agentic-Reasoning) | ⭐ 1.4k | 🔴 Advanced · Resource list built on the *Agentic Reasoning for LLMs* survey. |
+| [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) | ⭐ 13.4k | 🟡 Intermediate · **DeepSeek Harness plugin list** — a curated directory of the dsh plugin ecosystem (awesome-style). |
 
 ## <a id="agent-rules"></a>5. Agent Rules / Coding-Agent Skill Sets
 
@@ -100,6 +102,20 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 | [mind-protocol/terminal-velocity](https://github.com/mind-protocol/terminal-velocity) | ⭐ 1.1k | 🟢 Beginner · A novel written autonomously by a team of 10 AI agents (great agent-collaboration case study). |
 | [adamwlarson/ai-book-writer](https://github.com/adamwlarson/ai-book-writer) | ⭐ 393 | 🟢 Beginner · An AutoGen experiment: can an AI agent write a whole book on its own? |
 | [vkorost/weekend-diy-book](https://github.com/vkorost/weekend-diy-book) | ⭐ 24 | 🟢 Beginner · *Claude Code: The Definitive Guide to Agentic Development* — a technical book written by an agent over a single weekend. |
+
+## <a id="harness-ecosystem"></a>7. Agent Harness Ecosystem
+
+| Repo | Stars | Description |
+| --- | --- | --- |
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) | ⭐ 244.0k | 🟡 Intermediate · **ECC: Agent Harness performance optimization system** — Skills / Instincts / Memory / Security for Claude Code, Codex, OpenCode & more. |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | ⭐ 202.3k | 🟡 Intermediate · **DeepSeek Harness** — "Everything is a Plugin": the official open-source agent harness, 200k+ stars within two weeks. |
+| [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | ⭐ 81.1k | 🟡 Intermediate · **Deer Flow (ByteDance)** — open-source long-horizon SuperAgent harness: research, code & create, with sandboxes, memory, tools & subagents. |
+| [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | ⭐ 75.6k | 🟢 Beginner · **learn-claude-code** — build a nano Claude-Code-style agent harness from 0 to 1 ("Bash is all you need"). |
+| [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent) | ⭐ 68.5k | 🟡 Intermediate · **omo/lazycodex** — agent harness for complex codebases, built for Codex / OpenCode. |
+| [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | ⭐ 46.7k | 🟢 Beginner · **CowAgent** — open-source super AI assistant + agent harness with planning, tools/skills and self-evolving memory (formerly chatgpt-on-wechat). |
+| [wshobson/agents](https://github.com/wshobson/agents) | ⭐ 39.2k | 🟡 Intermediate · **Multi-harness plugin marketplace** — plugins for Claude Code / Codex / Cursor / OpenCode. |
+| [langchain-ai/deepagents](https://github.com/langchain-ai/deepagents) | ⭐ 28.7k | 🟡 Intermediate · **Deep Agents** — the batteries-included agent harness from LangChain. |
+| [anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop) | ⭐ 21.6k | 🟢 Beginner · **DSH Desktop** — a modern desktop client for the DeepSeek Harness plugin ecosystem ("the desktop is itself a plugin"). |
 
 ---
 
@@ -131,5 +147,6 @@ Every workday at 09:00 (Beijing time) a daily tech bulletin is published, curati
 
 ## 📅 Changelog
 
+- **2026-08-28**: Added the "🧩 Agent Harness Ecosystem" section (DeepSeek Harness, Deer Flow & 7 more) and the DSH plugin list — now 36 repos.
 - **2026-08-23**: Launched GitHub Pages site (search + difficulty filter); added English README & difficulty levels; daily auto-update via GitHub Actions
 - **2026-08-22**: Initial release (26 repos)

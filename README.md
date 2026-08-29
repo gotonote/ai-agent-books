@@ -7,7 +7,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/gotonote/awesome-agent-boom?style=flat-square)](https://github.com/gotonote/awesome-agent-boom/stargazers)
 [![在线书单](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%B9%A6%E5%8D%95-gotonote.github.io-blue?style=flat-square)](https://gotonote.github.io/awesome-agent-boom/)
-[![收录仓库](https://img.shields.io/badge/books-26-blue?style=flat-square)]()
+[![收录仓库](https://img.shields.io/badge/books-36-blue?style=flat-square)]()
 [![Last commit](https://img.shields.io/github/last-commit/gotonote/awesome-agent-boom?style=flat-square)]()
 [![Stars 自动更新](https://img.shields.io/github/actions/workflow/status/gotonote/awesome-agent-boom/update-stars.yml?style=flat-square&label=stars%20update)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
@@ -15,7 +15,7 @@
 ## ✨ 为什么收藏这份书单
 
 - **数据是活的**：Star 数由 GitHub Actions 每日自动抓取更新，榜单永不落伍
-- **精选不注水**：26 个仓库按六大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
+- **精选不注水**：36 个仓库按七大主题整理，每个标注难度（🟢 入门 / 🟡 进阶 / 🔴 深度）
 - **双端可读**：中英双语 README + 响应式[在线书单](https://gotonote.github.io/awesome-agent-boom/)网页版
 
 ---
@@ -29,6 +29,7 @@
 - [📑 四、论文清单 / 资源汇总](#papers-resources)
 - [🛠️ 五、Agent 规则书 / 编码 Agent 技能集](#agent-rules)
 - [✍️ 六、AI Agent 写书实验](#ai-writing)
+- [🧩 七、Agent Harness 生态](#harness-ecosystem)
 - [🏆 Top 10 总榜](#top-10)
 - [🔍 推荐阅读路线](#roadmap)
 
@@ -84,6 +85,7 @@
 | [WeThinkIn/AIGC-Interview-Book](https://github.com/WeThinkIn/AIGC-Interview-Book) | ⭐ 4.5k | 🟡 进阶 · AIGC/LLM/AI Agent 算法工程师面试资源平台（三年面试五年模拟） |
 | [luo-junyu/Awesome-Agent-Papers](https://github.com/luo-junyu/Awesome-Agent-Papers) | ⭐ 2.8k | 🔴 深度 · LLM Agent 综述：方法论、应用与挑战（持续更新） |
 | [weitianxin/Awesome-Agentic-Reasoning](https://github.com/weitianxin/Awesome-Agentic-Reasoning) | ⭐ 1.4k | 🔴 深度 · 基于 *Agentic Reasoning for LLMs* 综述整理的资源清单 |
+| [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) | ⭐ 13.4k | 🟡 进阶 · **DeepSeek Harness 插件精选清单**：dsh 生态插件大全（类 awesome 列表） |
 
 ## <a id="agent-rules"></a>🛠️ 五、Agent 规则书 / 编码 Agent 技能集
 
@@ -98,6 +100,20 @@
 | [mind-protocol/terminal-velocity](https://github.com/mind-protocol/terminal-velocity) | ⭐ 1.1k | 🟢 入门 · 由 10 个 AI Agent 组成的团队自主创作的长篇小说（可作 Agent 协作案例研究） |
 | [adamwlarson/ai-book-writer](https://github.com/adamwlarson/ai-book-writer) | ⭐ 393 | 🟢 入门 · 用 AutoGen 实验：验证 AI Agent 能否独立写完一本书 |
 | [vkorost/weekend-diy-book](https://github.com/vkorost/weekend-diy-book) | ⭐ 24 | 🟢 入门 · *Claude Code: The Definitive Guide to Agentic Development* —— 一个周末用 Agent 写成的技术书 |
+
+## <a id="harness-ecosystem"></a>🧩 七、Agent Harness 生态
+
+| 仓库 | Star | 说明 |
+| --- | --- | --- |
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) | ⭐ 244.0k | 🟡 进阶 · **ECC: Agent Harness 性能优化系统**：Skills / Instincts / Memory / Security，服务 Claude Code、Codex、OpenCode 等 |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | ⭐ 202.3k | 🟡 进阶 · **DeepSeek Harness**：「万物皆插件」的官方开源 Agent Harness，上线两周即破 20 万 Star |
+| [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | ⭐ 81.1k | 🟡 进阶 · **Deer Flow（字节跳动）**：开源长周期 SuperAgent Harness，研究 / 编码 / 创作一体，沙箱 + 记忆 + 工具 + 子 Agent |
+| [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | ⭐ 75.6k | 🟢 入门 · **learn-claude-code**：从 0 到 1 手写一个 nano Claude Code 式 Agent Harness（Bash is all you need） |
+| [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent) | ⭐ 68.5k | 🟡 进阶 · **omo/lazycodex**：面向复杂代码库的编码 Agent Harness，专为 Codex / OpenCode 打造 |
+| [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | ⭐ 46.7k | 🟢 入门 · **CowAgent**：开源超级 AI 助手 + Agent Harness，自主规划任务、调用工具与技能、记忆自进化（原 chatgpt-on-wechat） |
+| [wshobson/agents](https://github.com/wshobson/agents) | ⭐ 39.2k | 🟡 进阶 · **Multi-harness 插件市场**：Claude Code / Codex / Cursor / OpenCode 通用插件市场 |
+| [langchain-ai/deepagents](https://github.com/langchain-ai/deepagents) | ⭐ 28.7k | 🟡 进阶 · **Deep Agents**：LangChain 官方「全家桶」Agent Harness（batteries-included） |
+| [anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop) | ⭐ 21.6k | 🟢 入门 · **DSH Desktop**：DeepSeek Harness 插件生态的现代化桌面端，「桌面本身也是插件」 |
 
 ---
 
@@ -129,6 +145,7 @@
 
 ## 📅 更新记录
 
+- **2026-08-28**：新增「🧩 Agent Harness 生态」专题（DeepSeek Harness、Deer Flow 等 9 个仓库）与 DSH 插件资源清单，收录仓库增至 36 个
 - **2026-08-28**：新增「黑板报」——工作日每日出刊 AI / 科技要闻精选（Hacker News/少数派/InfoQ/量子位/IT之家 热榜），主页展示最近一周，往期全部归档
 - **2026-08-23**：上线 GitHub Pages 在线书单（搜索 + 难度筛选）；新增英文版 README、难度分级；接入 GitHub Actions 每日自动更新 Star 数
 - **2026-08-22**：整理发布初版（26 个仓库）
